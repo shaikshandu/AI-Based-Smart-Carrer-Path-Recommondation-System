@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 AI-Powered Web Dev & ML Roadmap</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #020617;
+      --card-bg: rgba(30, 41, 59, 0.7);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;    /* Web Blue */
+      --secondary: #f59e0b;  /* JS Yellow/Amber */
+      --success: #10b981;    /* Deployment Green */
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --card-hover-border: rgba(59, 130, 246, 0.4);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(245, 158, 11, 0.1) 0px, transparent 50%);
+      min-height: 100vh;
+    }
+
+    /* --- Navigation --- */
+    .nav-wrapper { position: fixed; top: 20px; left: 20px; z-index: 1000; }
+    .back-btn {
+      display: flex; align-items: center; gap: 10px; padding: 12px 24px;
+      background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border); border-radius: 50px;
+      color: white; text-decoration: none; font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover { background: rgba(59, 130, 246, 0.15); border-color: var(--primary); transform: translateY(-2px); }
+
+    /* --- Header --- */
+    header { padding: 100px 20px 60px; text-align: center; }
+    header h1 {
+      font-size: 3.5rem; font-weight: 800; letter-spacing: -1px;
+      background: linear-gradient(135deg, #fff 30%, #3b82f6 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+    header p { color: var(--text-muted); font-size: 1.25rem; max-width: 650px; margin: 0 auto; }
+
+    /* --- Grid --- */
+    .container {
+      max-width: 1280px; margin: 0 auto 80px; padding: 0 24px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    /* --- Course Card --- */
+    .course-card {
+      background: var(--card-bg); border: 1px solid var(--glass-border);
+      border-radius: 20px; padding: 32px; position: relative;
+      display: flex; flex-direction: column; height: 100%;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .course-card:hover {
+      transform: translateY(-8px); border-color: var(--card-hover-border);
+      box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(to bottom right, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 1));
+    }
+
+    .step-badge {
+      display: inline-block; font-size: 0.7rem; text-transform: uppercase;
+      letter-spacing: 1.5px; font-weight: 700; color: var(--primary);
+      margin-bottom: 12px; padding: 4px 10px;
+      background: rgba(59, 130, 246, 0.1); border-radius: 30px;
+    }
+
+    .course-card h2 { font-size: 1.6rem; margin-bottom: 8px; color: #fff; }
+    .meta {
+      display: flex; align-items: center; gap: 8px; font-size: 0.9rem;
+      color: var(--text-muted); margin-bottom: 24px; padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    ul { list-style: none; flex-grow: 1; margin-bottom: 30px; }
+    li { margin-bottom: 10px; padding-left: 24px; position: relative; color: #cbd5e1; }
+    li::before { content: "→"; position: absolute; left: 0; color: var(--primary); }
+
+    .ai-btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--primary); color: white; text-decoration: none;
+      padding: 14px; border-radius: 12px; font-weight: 600; transition: all 0.2s;
+    }
+    .ai-btn:hover { background: #2563eb; box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+
+    /* Special Styling for ML/AI Integration */
+    .highlight-card { border-color: rgba(16, 185, 129, 0.3); }
+    .highlight-card .step-badge { color: var(--success); background: rgba(16, 185, 129, 0.1); }
+    .new-tag {
+      position: absolute; top: 20px; right: 20px; background: var(--success);
+      color: #020617; font-size: 0.7rem; font-weight: 800; padding: 4px 8px; border-radius: 4px;
+    }
+
+    footer { text-align: center; padding: 40px; color: var(--text-muted); border-top: 1px solid var(--glass-border); }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.5rem; }
+      .container { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-wrapper">
+    <a href="index.html" class="back-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" width="20">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+      </svg>
+      Back to Index
+    </a>
+  </div>
+
+  <header>
+    <h1>Web Development Roadmap</h1>
+    <p>Master the modern stack and integrate Machine Learning into your applications.</p>
+  </header>
+
+  <section class="container">
+
+    <div class="course-card">
+      <span class="step-badge">Step 01</span>
+      <h2>HTML5 & CSS3 Mastery</h2>
+      <div class="meta">⏱️ 1 Month • The Foundation</div>
+      <ul>
+        <li>Semantic HTML & Accessibility (A11y)</li>
+        <li>Flexbox & Grid Layouts</li>
+        <li>Responsive Design (Mobile First)</li>
+        <li>CSS Variables & Animations</li>
+        <li><strong>Tooling:</strong> Tailwind CSS or SASS</li>
+      </ul>
+      <a href="https://chatgpt.com/?q=Teach+me+modern+CSS+Grid+and+Flexbox+with+practical+layout+examples." target="_blank" class="ai-btn">
+        🤖 Ask AI Tutor
+      </a>
+    </div>
+
+    <div class="course-card">
+      <span class="step-badge">Step 02</span>
+      <h2>Advanced JavaScript</h2>
+      <div class="meta">⏱️ 2 Months • The Engine</div>
+      <ul>
+        <li>ES6+ Syntax (Destructuring, Spreads)</li>
+        <li>Promises, Async/Await & Fetch API</li>
+        <li>DOM Manipulation & Events</li>
+        <li>Closures & Prototypes</li>
+        <li>TypeScript Basics for Type Safety</li>
+      </ul>
+      <a href="https://chatgpt.com/?q=Explain+JavaScript+Closures+and+Async/Await+with+real-world+coding+scenarios." target="_blank" class="ai-btn">
+        🤖 Ask AI Tutor
+      </a>
+    </div>
+
+    <div class="course-card">
+      <span class="step-badge">Step 03</span>
+      <h2>Git & Team Workflow</h2>
+      <div class="meta">⏱️ 2 Weeks • Collaboration</div>
+      <ul>
+        <li>Branching, Merging & Rebase</li>
+        <li>Pull Requests & Code Reviews</li>
+        <li>GitHub Actions (Basic CI/CD)</li>
+        <li>Resolving Merge Conflicts</li>
+      </ul>
+      <a href="https://chatgpt.com/?q=Create+a+cheat+sheet+for+essential+Git+commands+and+GitHub+collaboration+workflows." target="_blank" class="ai-btn">
+        🤖 Ask AI Tutor
+      </a>
+    </div>
+
+    <div class="course-card">
+      <span class="step-badge">Step 04</span>
+      <h2>React.js / Next.js</h2>
+      <div class="meta">⏱️ 2 Months • UI Logic</div>
+      <ul>
+        <li>Hooks (useState, useEffect, useMemo)</li>
+        <li>Server Components (Next.js 14+)</li>
+        <li>State Management (Zustand/Redux)</li>
+        <li>Server-Side Rendering (SSR)</li>
+      </ul>
+      <a href="https://chatgpt.com/?q=Teach+me+Next.js+App+Router+and+Server+Components+with+a+mini+project+structure." target="_blank" class="ai-btn">
+        🤖 Ask AI Tutor
+      </a>
+    </div>
+
+    <div class="course-card">
+      <span class="step-badge">Step 05</span>
+      <h2>Node.js & Backend</h2>
+      <div class="meta">⏱️ 1.5 Months • Logic & Data</div>
+      <ul>
+        <li>Express.js Framework</li>
+        <li>RESTful API Design</li>
+        <li>Authentication (JWT, NextAuth)</li>
+        <li>WebSockets for Real-time apps</li>
+      </ul>
+      <a href="https://chatgpt.com/?q=How+to+build+a+secure+REST+API+using+Node.js+and+Express+with+JWT+authentication?" target="_blank" class="ai-btn">
+        🤖 Ask AI Tutor
+      </a>
+    </div>
+
+    <div class="course-card">
+      <span class="step-badge">Step 06</span>
+      <h2>Databases (SQL & NoSQL)</h2>
+      <div class="meta">⏱️ 1 Month • Persistence</div>
+      <ul>
+        <li>PostgreSQL (Relational)</li>
+        <li>MongoDB (Document-based)</li>
+        <li>Prisma ORM / Mongoose</li>
+        <li>Database Indexing & Scaling</li>
+      </ul>
+      <a href="https://chatgpt.com/?q=Compare+SQL+vs+NoSQL+for+a+web+app+and+show+me+how+to+use+Prisma+with+PostgreSQL." target="_blank" class="ai-btn">
+        🤖 Ask AI Tutor
+      </a>
+    </div>
+
+    <div class="course-card highlight-card">
+      <div class="new-tag">AI READY</div>
+      <span class="step-badge">Step 07</span>
+      <h2>Machine Learning for Web</h2>
+      <div class="meta">⏱️ 2 Months • Smart Apps</div>
+      <ul>
+        <li>TensorFlow.js (In-browser ML)</li>
+        <li>Integrating OpenAI / Anthropic APIs</li>
+        <li>Building Vector Search with Pinecone</li>
+        <li>Deploying Python ML Models via FastAPI</li>
+        <li><strong>New:</strong> Local LLM integration (Ollama)</li>
+      </ul>
+      <a href="https://chatgpt.com/?q=How+do+I+integrate+a+Machine+Learning+model+into+a+React+frontend+using+FastAPI?" target="_blank" class="ai-btn">
+        🤖 Ask AI Tutor
+      </a>
+    </div>
+
+    <div class="course-card">
+      <span class="step-badge">Step 08</span>
+      <h2>Cloud & DevOps</h2>
+      <div class="meta">⏱️ 1 Month • Going Live</div>
+      <ul>
+        <li>Dockerizing Web Applications</li>
+        <li>Vercel / Netlify Deployment</li>
+        <li>AWS (EC2, S3, Lambda) Basics</li>
+        <li>Monitoring & Error Tracking</li>
+      </ul>
+      <a href="https://chatgpt.com/?q=Explain+how+to+Dockerize+a+Full-stack+Web+app+and+deploy+it+to+AWS." target="_blank" class="ai-btn">
+        🤖 Ask AI Tutor
+      </a>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© 2026 Web Dev Roadmap • Bridging Web & Machine Learning</p>
+  </footer>
+
+</body>
+</html>

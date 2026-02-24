@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Full Course </title>
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #04AA6D;
+            --accent: #3b82f6;
+            --bg: #f8fafc;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.7; margin: 0; background: var(--bg); color: #334155; display: flex; }
+        
+        /* Navigation Sidebar */
+        .sidebar { width: 300px; height: 100vh; background: var(--primary); color: white; position: fixed; overflow-y: auto; box-shadow: 4px 0 10px rgba(0,0,0,0.2); }
+        .sidebar-header { padding: 30px 20px; background: #0f172a; text-align: center; border-bottom: 1px solid #334155; }
+        .sidebar-header h2 { margin: 0; font-size: 1.4rem; color: var(--secondary); letter-spacing: 1px; }
+        .nav-group { padding: 10px 0; }
+        .unit-hdr { padding: 20px 25px 5px; font-size: 0.85rem; text-transform: uppercase; color: #94a3b8; font-weight: 700; letter-spacing: 1.5px; }
+        .nav-link { padding: 12px 35px; cursor: pointer; font-size: 0.95rem; transition: 0.3s; border-left: 4px solid transparent; display: block; color: #cbd5e1; text-decoration: none; }
+        .nav-link:hover { background: #334155; color: white; border-left: 4px solid var(--secondary); }
+        .nav-link.active { background: #334155; color: white; border-left: 4px solid var(--secondary); font-weight: 600; }
+
+        /* Main Content Container */
+        .main-content { margin-left: 300px; flex: 1; padding: 60px; display: flex; justify-content: center; }
+        .content-card { background: white; width: 100%; max-width: 1000px; padding: 50px; border-radius: 16px; box-shadow: var(--card-shadow); border: 1px solid #e2e8f0; position: relative; }
+        h1 { color: var(--primary); font-size: 2.5rem; margin-top: 0; border-bottom: 4px solid var(--secondary); padding-bottom: 15px; margin-bottom: 40px; }
+        h2 { color: var(--primary); margin-top: 45px; border-left: 6px solid var(--secondary); padding-left: 20px; font-size: 1.8rem; }
+        h3 { color: var(--accent); margin-top: 30px; font-size: 1.3rem; }
+        p, li { font-size: 1.1rem; margin-bottom: 15px; }
+        ul, ol { margin-bottom: 25px; padding-left: 25px; }
+        
+        /* Code Box Styling */
+        pre { background: #0f172a; color: #f8fafc; padding: 25px; border-radius: 12px; overflow-x: auto; font-family: 'Fira Code', 'Consolas', monospace; margin: 25px 0; border-left: 5px solid var(--accent); position: relative; }
+        .code-lang { position: absolute; top: 0; right: 25px; background: var(--secondary); color: white; padding: 3px 12px; font-size: 0.75rem; font-weight: bold; border-radius: 0 0 8px 8px; }
+        
+        /* Quiz Interface Styling */
+        .quiz-section { background: #f1f5f9; padding: 40px; border-radius: 12px; border: 2px dashed #cbd5e1; margin-top: 40px; }
+        .quiz-q { font-weight: 700; font-size: 1.2rem; margin-bottom: 20px; display: block; color: var(--primary); }
+        .quiz-opt { display: flex; align-items: center; background: white; margin: 12px 0; padding: 15px; border-radius: 8px; cursor: pointer; transition: 0.2s; border: 1px solid #e2e8f0; }
+        .quiz-opt:hover { border-color: var(--accent); background: #eff6ff; }
+        .quiz-opt input { margin-right: 15px; transform: scale(1.2); }
+        
+        /* Navigation Controls */
+        .footer-nav { display: flex; justify-content: space-between; margin-top: 60px; padding-top: 30px; border-top: 2px solid #f1f5f9; }
+        .btn { padding: 14px 40px; border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .btn-prev { background: #94a3b8; color: white; }
+        .btn-next { background: var(--secondary); color: white; }
+        .btn:hover:not(:disabled) { transform: translateY(-2px); opacity: 0.9; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .btn:disabled { background: #e2e8f0; color: #94a3b8; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="sidebar-header">
+        <h2>PYTHON FULL COURSE</h2>
+    </div>
+    <div class="nav-group">
+        <div class="unit-hdr">Introduction</div>
+        <div class="nav-link active" onclick="jump(0)">1. History & Setup</div>
+        <div class="nav-link" onclick="jump(1)">2. Data Types & Literals</div>
+        <div class="nav-link" onclick="jump(2)">3. Variables & Execution</div>
+        
+        <div class="unit-hdr">Logic & Loops</div>
+        <div class="nav-link" onclick="jump(3)">4. Conditionals (If-Else)</div>
+        <div class="nav-link" onclick="jump(4)">5. Iteration (While-For)</div>
+        
+        <div class="unit-hdr">Structure</div>
+        <div class="nav-link" onclick="jump(5)">6. Functions & Scope</div>
+        <div class="nav-link" onclick="jump(6)">7. Strings & Slicing</div>
+        
+        <div class="unit-hdr">Collections</div>
+        <div class="nav-link" onclick="jump(7)">8. Lists & Tuples</div>
+        <div class="nav-link" onclick="jump(8)">9. Dictionaries & Sets</div>
+        
+        <div class="unit-hdr">Core Systems</div>
+        <div class="nav-link" onclick="jump(9)">10. File Handling</div>
+        <div class="nav-link" onclick="jump(10)">11. Exception Handling</div>
+        <div class="nav-link" onclick="jump(11)">12. Modules & Packages</div>
+        
+        <div class="unit-hdr">Practice</div>
+        <div class="nav-link" onclick="jump(12)">🎓 Final Assessment</div>
+    </div>
+</div>
+
+<div class="main-content">
+    <article class="content-card">
+        <h1 id="view-title">Introduction to Python</h1>
+        <div id="view-body"></div>
+        
+        <div class="footer-nav">
+            <button class="btn btn-prev" id="prevBtn" onclick="step(-1)">← Back</button>
+            <button class="btn btn-next" id="nextBtn" onclick="step(1)">Next Lesson →</button>
+        </div>
+    </article>
+</div>
+
+<script>
+const contentDB = [
+    {
+        title: "History, Installation & Execution",
+        body: `
+            <p><strong>Python</strong> is a widely used general-purpose, high-level programming language designed by <strong>Guido van Rossum</strong> in 1991[cite: 3194, 3195]. It emphasizes code readability and allows concepts to be expressed in fewer lines of code compared to C++ or Java[cite: 3196].</p>
+            <h3>Execution Model</h3>
+            <p>Python source code (<code>.py</code>) is automatically compiled into <strong>Byte code</strong> (<code>.pyc</code>), which is then interpreted and run by the <strong>Python Virtual Machine (PVM)</strong>[cite: 3279, 3280, 3287].</p>
+                        <h3>Installation Steps</h3>
+            <ol>
+                <li>Download the executable installer from <code>python.org</code>[cite: 3255].</li>
+                <li>Run the installer and ensure <strong>"Add Python to PATH"</strong> is checked[cite: 3256, 3277].</li>
+                <li>Verify installation by typing <code>python --version</code> in the command prompt[cite: 3257].</li>
+            </ol>
+        `
+    },
+    {
+        title: "Standard Data Types & Literals",
+        body: `
+            <p>Python has various standard data types that define the storage method and possible operations[cite: 3331]:</p>
+            <ul>
+                <li><strong>Int:</strong> Whole numbers, positive or negative, of unlimited length (e.g., <code>10</code>, <code>-500</code>)[cite: 3332, 3333].</li>
+                <li><strong>Float:</strong> Numbers containing one or more decimals or scientific notation (e.g., <code>2.8</code>, <code>35e3</code>)[cite: 3362, 3363].</li>
+                <li><strong>Boolean:</strong> Represents truth values: <code>True</code> or <code>False</code>[cite: 3389].</li>
+                <li><strong>String:</strong> A contiguous set of characters identified within quotation marks (single or double)[cite: 3394, 3395].</li>
+                <li><strong>List:</strong> An ordered collection that is changeable (mutable) and allows duplicate members[cite: 3447, 3448].</li>
+            </ul>
+            <pre><div class="code-lang">Python</div># Checking data types
+x = 10
+print(type(x))  # Output: <class 'int'> [cite: 3356]
+y = 2.8
+print(type(y))  # Output: <class 'float'> [cite: 3369]</pre>
+        `
+    },
+    {
+        title: "Variables, Expressions & Precedence",
+        body: `
+            <h3>Variables</h3>
+            <p>Variables are reserved memory locations to store values[cite: 3467]. In Python, declaration happens automatically when you assign a value using the <strong>equal sign (=)</strong>[cite: 3478, 3479].</p>
+            <pre><div class="code-lang">Python</div># Multiple Assignment
+a = b = c = 1  # Assigns 1 to all three [cite: 3501]
+a, b, c = 1, 2, "mrcet"  # Assigns multiple objects [cite: 3505]</pre>
+            <h3>Operator Precedence</h3>
+            <p>Precedence determines the order in which operators are evaluated. Operators with higher precedence (like <code>*</code> and <code>/</code>) are evaluated before those with lower precedence (like <code>+</code> and <code>-</code>)[cite: 3624, 3625].</p>
+            <pre><div class="code-lang">Python</div>result = 3 + 4 * 2  # Result is 11, not 14 [cite: 3627, 3628]</pre>
+        `
+    },
+    {
+        title: "Control Flow: Conditional Statements",
+        body: `
+            <p>Conditionals use logical expressions to make decisions based on comparison results[cite: 4165, 4166].</p>
+            <h3>1. if Statement</h3>
+            <p>Executes a block of code if the boolean expression is <code>True</code>[cite: 4170].</p>
+            <h3>2. if-else Statement</h3>
+            <p>Adds an <strong>else</strong> block (false block) to execute if the condition is not met[cite: 4204, 4206].</p>
+            <h3>3. Chained Conditionals (if-elif-else)</h3>
+            <p>Used to check multiple expressions sequentially[cite: 4245, 4246].</p>
+            <pre><div class="code-lang">Python</div># Chained Conditional Example
+a = 10
+b = 20
+if a > b:
+    print("a is greater")
+elif b > a:
+    print("b is greater")
+else:
+    print("Both are equal") [cite: 4270-4277]</pre>
+        `
+    },
+    {
+        title: "Iteration: While & For Loops",
+        body: `
+            <p>Iteration is the repeated execution of statements until a condition is met[cite: 4315, 4316].</p>
+            <h3>While Loop</h3>
+            <p>Keeps executing as long as the boolean expression remains <code>True</code>[cite: 4325].</p>
+            <pre><div class="code-lang">Python</div>i = 1
+while i <= 3:
+    print("mrcet college")
+    i += 1 [cite: 4340-4343]</pre>
+            <h3>For Loop</h3>
+            <p>Iterates over items in any sequence (list, tuple, string) for a set number of times[cite: 4441, 4442].</p>
+            <pre><div class="code-lang">Python</div>for val in [1, 2, 4]:
+    print(val * val)  # Squares the values [cite: 4452-4454]</pre>
+            <p><strong>Loop Control:</strong> <code>break</code> terminates the loop, while <code>continue</code> skips the current iteration and moves to the next[cite: 4583, 4652].</p>
+        `
+    },
+    {
+        title: "Functions: Return Values & Scope",
+        body: `
+            <p>A <strong>Function</strong> is a group of related statements that perform a specific task, making code reusable and modular[cite: 3709, 3710, 3712].</p>
+            <h3>Fruitful Functions</h3>
+            <p>Functions that use the <code>return</code> statement to send a value back to the caller are called fruitful functions[cite: 4757, 4761].</p>
+            <pre><div class="code-lang">Python</div>def calc_factorial(x):
+    if x == 1: return 1
+    else: return (x * calc_factorial(x-1)) # Recursion [cite: 5008-5014]</pre>
+            <h3>Scope</h3>
+            <ul>
+                <li><strong>Local Scope:</strong> Variables defined inside a function, accessible only within it[cite: 4884, 4885].</li>
+                <li><strong>Global Scope:</strong> Variables defined in the main body, visible throughout the file[cite: 4887, 4888].</li>
+            </ul>
+        `
+    },
+    {
+        title: "Strings: Immutability & Slicing",
+        body: `
+            <p>A string is a sequence of characters[cite: 5023]. They are <strong>immutable</strong>, meaning characters within a string cannot be changed after creation[cite: 5093, 5099].</p>
+            <h3>String Slicing</h3>
+            <p>Access segments using <code>[Start:Stop:Steps]</code>[cite: 5041, 5045].</p>
+            <pre><div class="code-lang">Python</div>text = 'computer'
+print(text[1:4])  # Output: 'omp' [cite: 5070, 5071]
+print(text[::-1]) # Output: 'retupmoc' (Reversed) [cite: 5091, 5092]</pre>
+            <h3>Common Methods</h3>
+            <ul>
+                <li><code>isalnum()</code>: Returns True if alphanumeric[cite: 5120].</li>
+                <li><code>split()</code>: Splits string into a list based on a delimiter[cite: 5198, 5199].</li>
+            </ul>
+        `
+    },
+    {
+        title: "Lists & Tuples",
+        body: `
+            <h3>Lists (Mutable)</h3>
+            <p>Ordered collections that can be changed after creation. Common methods include <code>append()</code>, <code>pop()</code>, and <code>sort()</code>[cite: 5390, 5509, 5514].</p>
+            <p><strong>Cloning:</strong> Use slicing <code>b = a[:]</code> to create a separate copy of a list[cite: 5671, 5672].</p>
+            <h3>Tuples (Immutable)</h3>
+            <p>Ordered collections that <strong>cannot</strong> be changed. They use round brackets <code>()</code> and are more memory-efficient than lists[cite: 5758, 5759, 5767].</p>
+            <pre><div class="code-lang">Python</div># List Comprehension
+squares = [x**2 for x in range(10)] # [cite: 5728]</pre>
+        `
+    },
+    {
+        title: "Dictionaries & Sets",
+        body: `
+            <h3>Dictionaries</h3>
+            <p>An unordered collection of <strong>key-value pairs</strong> written with curly brackets <code>{}</code>[cite: 5900, 5901].</p>
+            <pre><div class="code-lang">Python</div>dict1 = {"brand": "mrcet", "year": 2004}
+print(dict1["brand"])  # Output: 'mrcet' [cite: 5913]</pre>
+            <h3>Common Operations</h3>
+            <ul>
+                <li><code>keys()</code>: View all keys[cite: 5906].</li>
+                <li><code>values()</code>: View all values[cite: 5912].</li>
+                <li><code>pop(key)</code>: Removes specific item[cite: 5906, 5916].</li>
+            </ul>
+        `
+    },
+    {
+        title: "File Handling (I/O)",
+        body: `
+            <p>Files are categorized into <strong>Text files</strong> (terminated by EOL characters) and <strong>Binary files</strong> (stored as machine code)[cite: 5924, 5926, 5928, 5929].</p>
+            <h3>File Modes[cite: 5935]:</h3>
+            <ul>
+                <li><code>'r'</code>: Read (Default)[cite: 5936].</li>
+                <li><code>'w'</code>: Write (Overwrites existing data)[cite: 5937].</li>
+                <li><code>'a'</code>: Append (Adds to the end of the file)[cite: 5939].</li>
+            </ul>
+            <pre><div class="code-lang">Python</div># Writing example
+f = open("hello.txt", "w")
+f.write("hello world")
+f.close() [cite: 5945]</pre>
+        `
+    },
+    {
+        title: "Exceptions & Handling Errors",
+        body: `
+            <p>An <strong>Exception</strong> is an event that disrupts the normal flow of program instructions during execution[cite: 5930].</p>
+            <h3>Handling with try-except</h3>
+            <p>Python uses indented blocks to prevent abrupt program termination when errors occur[cite: 5995, 5996].</p>
+            <pre><div class="code-lang">Python</div>try:
+    print(a / b)
+except ZeroDivisionError as e:
+    print("Cannot divide by zero:", e) [cite: 6014]
+finally:
+    print("Resource closed")  # Always executes [cite: 6012]</pre>
+        `
+    },
+    {
+        title: "Modules & Packages",
+        body: `
+            <h3>Modules</h3>
+            <p>A file containing Python statements and definitions (e.g., <code>math.py</code>) used to break large programs into manageable files[cite: 6017, 6018, 6029].</p>
+            <h3>Packages</h3>
+            <p>A well-organized hierarchy of directories containing multiple modules. A directory <strong>must</strong> contain an <code>__init__.py</code> file to be treated as a package[cite: 6076, 6078, 6082].</p>
+            <pre><div class="code-lang">Python</div>import math as m  # Renaming for convenience [cite: 6066]
+print(m.pi) [cite: 6068]</pre>
+        `
+    },
+    {
+        title: "🎓 Final Course Quiz",
+        body: `
+            <div class="quiz-section">
+                <span class="quiz-q">1. Who is the designer of Python?</span>
+                <label class="quiz-opt"><input type="radio" name="q1" value="w"> Mark Lutz</label>
+                <label class="quiz-opt"><input type="radio" name="q1" value="c"> Guido van Rossum</label>
+                
+                <span class="quiz-q">2. Which of these is an immutable collection?</span>
+                <label class="quiz-opt"><input type="radio" name="q2" value="w"> List</label>
+                <label class="quiz-opt"><input type="radio" name="q2" value="c"> Tuple</label>
+
+                <span class="quiz-q">3. What is the extension for compiled Python byte code?</span>
+                <label class="quiz-opt"><input type="radio" name="q3" value="c"> .pyc</label>
+                <label class="quiz-opt"><input type="radio" name="q3" value="w"> .pvm</label>
+
+                <span class="quiz-q">4. Which block always executes in exception handling?</span>
+                <label class="quiz-opt"><input type="radio" name="q4" value="w"> except</label>
+                <label class="quiz-opt"><input type="radio" name="q4" value="c"> finally</label>
+
+                <button class="btn btn-next" style="width:100%; margin-top:20px" onclick="checkScore()">Submit Exam</button>
+                <p id="grade" style="margin-top:25px; font-weight:bold; color:var(--secondary); text-align:center; font-size:1.5rem"></p>
+            </div>
+        `
+    }
+];
+
+let currentIdx = 0;
+
+function jump(idx) {
+    currentIdx = idx;
+    render();
+}
+
+function step(dir) {
+    currentIdx += dir;
+    render();
+}
+
+function render() {
+    const page = contentDB[currentIdx];
+    document.getElementById('view-title').innerText = page.title;
+    document.getElementById('view-body').innerHTML = page.body;
+    
+    // Update active state in sidebar
+    const links = document.querySelectorAll('.nav-link');
+    links.forEach((l, i) => l.classList.toggle('active', i === currentIdx));
+
+    // Button states
+    document.getElementById('prevBtn').disabled = currentIdx === 0;
+    document.getElementById('nextBtn').disabled = currentIdx === contentDB.length - 1;
+    
+    window.scrollTo(0,0);
+}
+
+function checkScore() {
+    const total = 4;
+    let score = 0;
+    document.querySelectorAll('input[value="c"]:checked').forEach(() => score++);
+    document.getElementById('grade').innerText = `Your Result: ${score} / ${total}`;
+}
+
+// Initial Run
+render();
+</script>
+
+</body>
+</html>

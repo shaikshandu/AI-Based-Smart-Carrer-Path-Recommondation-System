@@ -1,0 +1,55 @@
+/* --- Updated Navigation --- */
+.glass-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px; /* More spacing */
+    background: rgba(9, 9, 11, 0.6); /* More transparent */
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- Stylish Back Button --- */
+.back-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 20px 8px 8px; /* Special padding for circle icon */
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px; /* Pill shape */
+    color: #a1a1aa;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* The Circle around the Arrow */
+.icon-circle {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effects */
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(99, 102, 241, 0.5); /* Indigo Border */
+    color: white;
+    transform: translateX(-5px); /* Subtle slide left */
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.2); /* Glow */
+}
+
+.back-btn:hover .icon-circle {
+    background: #6366f1; /* Indigo circle */
+    color: white;
+}

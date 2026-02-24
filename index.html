@@ -1,0 +1,87 @@
+00<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillPath AI | Next Gen Learning</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="aurora-1"></div>
+    <div class="aurora-2"></div>
+    <div class="stars"></div>
+
+    <div class="glass-card">
+        <header>
+            <h1>Find What to Learn for Your Career</h1>
+            <p class="subtitle">
+              We help freshers choose the right course, build a clear learning path,
+              and prepare for jobs — even if you’re starting from zero.
+            </p>
+        </header>
+
+        <div class="search-container">
+            <input 
+                type="text" 
+                id="topicInput" 
+                placeholder="What do you want to master today?" 
+                autocomplete="off"
+            >
+            <div class="search-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </div>
+        </div>
+
+        <div class="tag-container">
+            <span class="tag" onclick="setTopic('Data Science')">Data Science</span>
+            <span class="tag" onclick="setTopic('Full Stack Developer')">Full Stack Developer</span>
+            <span class="tag" onclick="setTopic('Web Development')">Web Dev</span>
+        </div>
+
+        <div class="label">Choose Output Format</div>
+        <div class="options-grid">
+            <button class="option-card active" data-type="course">
+                <div class="icon">📘</div>
+                <div class="text">Full Course</div>
+            </button>
+
+            <button class="option-card" data-type="roadmap">
+                <div class="icon">🗺️</div>
+                <div class="text">Roadmap</div>
+            </button>
+
+            <button class="option-card" data-type="plan">
+                <div class="icon">📅</div>   
+                <div class="text">Study Plan</div>
+            </button>
+
+            <button class="option-card highlight" data-type="interview">
+                <div class="icon">🎤</div>
+                <div class="text">Interview Prep</div>
+            </button>
+
+            <!-- NEW BUTTON -->
+            <button class="option-card" data-type="youtube">
+                <div class="icon">▶️</div>
+                <div class="text">YouTube Tutor</div>
+            </button>
+
+        </div>
+
+        <button class="generate-btn" onclick="handleGenerate()">
+            <span>Generate Learning Path</span>
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

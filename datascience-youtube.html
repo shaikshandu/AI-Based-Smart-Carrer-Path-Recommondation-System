@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SkillPath AI | Data Science Tutors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #09090b;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.3);
+            --text-secondary: #a1a1aa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: white;
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* NEW BACK BUTTON STYLE */
+        .back-btn {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: var(--glass);
+            padding: 10px 18px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            transition: 0.3s;
+            z-index: 100;
+        }
+
+        .back-btn:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(-5px);
+            border-color: var(--accent);
+        }
+
+        .aurora {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--accent), transparent 70%);
+            filter: blur(100px);
+            opacity: 0.2;
+            z-index: -1;
+            top: -10%;
+            right: -10%;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #fff, #a1a1aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .controls {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 20px;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .search-box:focus { border-color: var(--accent); }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filters button {
+            background: rgba(255,255,255,0.05);
+            color: var(--text-secondary);
+            border: 1px solid var(--glass-border);
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        .filters button.active, .filters button:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        #channelContainer {
+            display: grid;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 24px;
+            border-radius: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            background: rgba(255,255,255,0.06);
+            transform: scale(1.01);
+        }
+
+        .card-info h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.3rem;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            background: rgba(99, 102, 241, 0.2);
+            color: #818cf8;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .card-info p {
+            color: var(--text-secondary);
+            margin: 8px 0 0 0;
+            font-size: 0.95rem;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn-visit {
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .btn-visit:hover { transform: translateY(-2px); }
+
+        .yt-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,0,0,0.1);
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .yt-icon:hover {
+            background: rgba(255,0,0,0.2);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 600px) {
+            .back-btn { position: relative; top: 0; left: 0; margin-bottom: 20px; width: fit-content; }
+            .card { flex-direction: column; text-align: center; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="aurora"></div>
+
+<a href="index.html" class="back-btn">
+    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+    </svg>
+    Back
+</a>
+
+<div class="container">
+    <header>
+        <h1>Expert Tutors</h1>
+        <p style="color: var(--text-secondary)">Curated YouTube channels to master Data Science</p>
+    </header>
+
+    <div class="controls">
+        <input type="text" id="searchInput" class="search-box" placeholder="Search by name or skill..." onkeyup="handleSearch()">
+        <div class="filters">
+            <button class="active" onclick="filterChannels('all', this)">All</button>
+            <button onclick="filterChannels('English', this)">English</button>
+            <button onclick="filterChannels('Telugu', this)">Telugu</button>
+            <button onclick="filterChannels('Hindi', this)">Hindi</button>
+        </div>
+    </div>
+
+    <div id="channelContainer"></div>
+</div>
+
+<script>
+const channels = [
+    {
+        name: "Codebasics",
+        language: "English",
+        description: "Best for Data Science",
+        link: "https://youtu.be/JL_grPUnXzY"
+    },
+    {
+        name: "Krish Naik",
+        language: "English",
+        description: "Real world End-to-End ML & AI Projects",
+        link: "https://youtu.be/bPrmA1SEN2k"
+    },
+    {
+        name: "Telugu Data Science",
+        language: "Telugu",
+        description: "Complex Data Science concepts in Telugu",
+        link: "https://youtu.be/WKHlx--15_I?si=g0xflfZpYosWThQP"
+    }
+        ,
+    {
+        name: "Codebasics Hindi",
+        language: "Hindi",
+        description: "Data Science & Machine Learning in Hindi",
+        link: "https://youtu.be/kz184QIO4ZQ?si=at46BKKONRQE542K"
+    }
+
+];
+
+let currentLanguage = 'all';
+
+function displayChannels(list) {
+    const container = document.getElementById("channelContainer");
+    container.innerHTML = "";
+
+    list.forEach(channel => {
+        container.innerHTML += `
+            <div class="card">
+                <div class="card-info">
+                    <span class="badge">${channel.language}</span>
+                    <h3>${channel.name}</h3>
+                    <p>${channel.description}</p>
+                </div>
+                <div class="card-actions">
+                    <a href="${channel.link}" target="_blank" class="yt-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="#FF0000">
+                            <path d="M23.5 6.2s-.2-1.6-.8-2.3c-.8-.8-1.7-.8-2.1-.9C17.6 2.8 12 2.8 12 2.8h0s-5.6 0-8.6.2c-.4 0-1.3 0-2.1.9C.7 4.6.5 6.2.5 6.2S.3 8 .3 9.8v1.6C.3 13.2.5 15 .5 15s.2 1.6.8 2.3c.8.8 1.9.8 2.4.9 1.8.2 7.3.2 7.3.2s5.6 0 8.6-.2c.4 0 1.3 0 2.1-.9.6-.7.8-2.3.8-2.3s.2-1.8.2-3.6V9.8c0-1.8-.2-3.6-.2-3.6zM9.8 14.5V7.9l6.4 3.3-6.4 3.3z"/>
+                        </svg>
+                    </a>
+                    <a href="${channel.link}" target="_blank" class="btn-visit">Visit Channel</a>
+                </div>
+            </div>
+        `;
+    });
+}
+
+function filterChannels(language, btn) {
+    document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentLanguage = language;
+    handleSearch();
+}
+
+function handleSearch() {
+    const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+
+    const filtered = channels.filter(ch => {
+        const matchesLang = currentLanguage === 'all' || ch.language === currentLanguage;
+        const matchesSearch = ch.name.toLowerCase().includes(searchTerm) ||
+                              ch.description.toLowerCase().includes(searchTerm);
+        return matchesLang && matchesSearch;
+    });
+
+    displayChannels(filtered);
+}
+
+displayChannels(channels);
+</script>
+
+</body>
+</html>

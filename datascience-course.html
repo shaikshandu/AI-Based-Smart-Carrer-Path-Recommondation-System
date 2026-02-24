@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 AI Data Science Roadmap</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #020617;
+      --card-bg: rgba(30, 41, 59, 0.7);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;    /* Blue */
+      --secondary: #8b5cf6;  /* Purple */
+      --success: #10b981;    /* Green */
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --card-hover-border: rgba(59, 130, 246, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      /* Subtle mesh gradient background */
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
+      min-height: 100vh;
+    }
+
+    /* --- Navigation: Glassmorphic Back Button --- */
+    .nav-wrapper {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      background: rgba(15, 23, 42, 0.6); /* Semi-transparent dark */
+      backdrop-filter: blur(16px); /* The Blur Effect */
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 50px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .back-btn svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: rgba(59, 130, 246, 0.15);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.2);
+    }
+
+    .back-btn:hover svg {
+      transform: translateX(-4px); /* Arrow moves left */
+    }
+
+    /* --- Header Section --- */
+    header {
+      padding: 100px 20px 60px; /* Extra top padding for fixed nav */
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #fff 30%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* --- Grid Layout --- */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    /* --- Course Card Design --- */
+    .course-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Card Hover Glow */
+    .course-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--card-hover-border);
+      box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(to bottom right, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 1));
+    }
+
+    .step-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+      padding: 4px 10px;
+      background: rgba(59, 130, 246, 0.1);
+      border-radius: 30px;
+      width: fit-content;
+    }
+
+    .course-card h2 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .meta span.icon { filter: grayscale(1); margin-right: 4px; }
+
+    /* Topic List */
+    ul {
+      list-style: none;
+      flex-grow: 1;
+      margin-bottom: 30px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      padding-left: 24px;
+      position: relative;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    /* Custom Checkmark Bullet */
+    li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--success);
+      font-weight: bold;
+      opacity: 0.8;
+    }
+
+    /* AI Button */
+    .ai-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .ai-btn:hover {
+      background: #2563eb;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    }
+
+    /* Special Styling for New Tech (GenAI) */
+    .highlight-card {
+      border-color: rgba(139, 92, 246, 0.3);
+      background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.1), transparent 40%), var(--card-bg);
+    }
+    .highlight-card .step-badge { color: var(--secondary); background: rgba(139, 92, 246, 0.1); }
+    .highlight-card .ai-btn { background: var(--secondary); }
+    .highlight-card .ai-btn:hover { background: #7c3aed; box-shadow: 0 0 20px rgba(139, 92, 246, 0.4); }
+
+    .new-tag {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--success);
+      color: #020617;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--glass-border);
+      background: #020617;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.5rem; }
+      .container { grid-template-columns: 1fr; }
+      .nav-wrapper { width: 100%; top: 0; left: 0; background: rgba(2,6,23,0.9); padding: 10px 20px; border-bottom: 1px solid var(--glass-border); backdrop-filter: blur(10px); }
+      .back-btn { background: transparent; border: none; padding: 0; box-shadow: none; }
+      header { padding-top: 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-wrapper">
+    <a href="index.html" class="back-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+      </svg>
+      Back to Index
+    </a>
+  </div>
+
+  <header>
+    <h1>AI Data Science Roadmap</h1>
+    <p>A comprehensive, AI-assisted path from Python basics to Generative AI.</p>
+  </header>
+
+  <section class="container">
+
+    <div class="course-card">
+      <span class="step-badge">Step 01</span>
+      <h2>Python for Data Science</h2>
+      <div class="meta">⏱️ 2 Months • The Foundation</div>
+      <ul>
+        <li>Variables, Loops, Functions, Lambda</li>
+        <li>Data Structures (List, Dict, Set)</li>
+        <li>OOP: Classes & Inheritance</li>
+        <li>Virtual Env & PIP</li>
+        <li><strong>Libraries:</strong> NumPy, Pandas, Matplotlib</li>
+      </ul>
+      <a href="https://www.w3schools.com/python/python_intro.asp" 
+target="_blank" 
+class="ai-btn">
+🤖 Full Course
+</a>
+
+    </div>
+
+    <div class="course-card">
+      <span class="step-badge">Step 02</span>
+      <h2>SQL & Database Design</h2>
+      <div class="meta">⏱️ 1.5 Months • Data Management</div>
+      <ul>
+        <li>CRUD Operations</li>
+        <li>Joins (Inner, Left, Right, Full)</li>
+        <li>Aggregations & Group By</li>
+        <li>Window Functions (RANK, LEAD)</li>
+        <li>Normalization & Indexing</li>
+      </ul>
+      <a href="https://www.w3schools.com/mysql/mysql_intro.asp" target="_blank" class="ai-btn">
+        🤖 Full Course
+      </a>
+    </div>
+
+    <div class="course-card">
+      <span class="step-badge">Step 03</span>
+      <h2>Math & Statistics</h2>
+      <div class="meta">⏱️ 2 Months • The Theory</div>
+      <ul>
+        <li>Linear Algebra (Vectors, Matrices)</li>
+        <li>Calculus (Derivatives, Gradients)</li>
+        <li>Probability (Bayes, Distributions)</li>
+        <li>Hypothesis Testing (p-value, A/B)</li>
+      </ul>
+      <a href="https://www.w3schools.com/statistics/statistics_introduction.php" target="_blank" class="ai-btn">
+        🤖 Full Course
+      </a>
+    </div>
+
+    <div class="course-card">
+      <span class="step-badge">Step 04</span>
+      <h2>EDA & Visualization</h2>
+      <div class="meta">⏱️ 1 Month • Data Storytelling</div>
+      <ul>
+        <li>Pandas for Data Cleaning</li>
+        <li>Handling Nulls & Outliers</li>
+        <li>Feature Engineering</li>
+        <li>Seaborn & Plotly (Interactive)</li>
+        <li>Dimensionality Reduction (PCA)</li>
+      </ul>
+      <a href="https://www.w3schools.com/datascience/ds_introduction.asp" target="_blank" class="ai-btn">
+        🤖 Full Course
+      </a>
+    </div>
+
+    <div class="course-card">
+      <span class="step-badge">Step 05</span>
+      <h2>Machine Learning</h2>
+      <div class="meta">⏱️ 3 Months • Predictive Modeling</div>
+      <ul>
+        <li>Regression (Linear, Logistic)</li>
+        <li>Decision Trees & Random Forest</li>
+        <li>Gradient Boosting (XGBoost, LightGBM)</li>
+        <li>Model Metrics (Recall, Precision, F1)</li>
+        <li>Scikit-Learn Pipelines</li>
+      </ul>
+      <a href="https://www.w3schools.com/python/python_ml_getting_started.asp" target="_blank" class="ai-btn">
+        🤖 Full Course
+      </a>
+    </div>
+
+    <div class="course-card">
+      <span class="step-badge">Step 06</span>
+      <h2>Deep Learning</h2>
+      <div class="meta">⏱️ 2.5 Months • Neural Networks</div>
+      <ul>
+        <li>PyTorch / TensorFlow</li>
+        <li>ANN, Backpropagation</li>
+        <li>CNN (Computer Vision)</li>
+        <li>RNN & LSTM (Sequence Data)</li>
+        <li>Transfer Learning</li>
+      </ul>
+      <a href="https://chatgpt.com/?q=Teach+me+Deep+Learning+basics+using+PyTorch.+Cover+CNNs+and+how+neural+networks+learn." target="_blank" class="ai-btn">
+        🤖 Ask AI Tutor
+      </a>
+    </div>
+
+    <div class="course-card highlight-card">
+      <div class="new-tag">NEW 2026</div>
+      <span class="step-badge">Step 07</span>
+      <h2>Generative AI & LLMs</h2>
+      <div class="meta">⏱️ 2 Months • The Cutting Edge</div>
+      <ul>
+        <li>Transformers Architecture (Attention)</li>
+        <li>Prompt Engineering</li>
+        <li>LangChain & LlamaIndex</li>
+        <li>RAG (Retrieval Augmented Gen)</li>
+        <li>Vector DBs (Pinecone, Chroma)</li>
+      </ul>
+      <a href="https://chatgpt.com/?q=Explain+how+LLMs+and+Transformers+work.+How+do+I+build+a+RAG+application+using+LangChain?" target="_blank" class="ai-btn">
+        🤖 Ask AI Tutor
+      </a>
+    </div>
+
+    <div class="course-card">
+      <span class="step-badge">Step 08</span>
+      <h2>MLOps & Deployment</h2>
+      <div class="meta">⏱️ 1.5 Months • Production</div>
+      <ul>
+        <li>Docker & Kubernetes Basics</li>
+        <li>FastAPI for Model Serving</li>
+        <li>MLflow (Experiment Tracking)</li>
+        <li>CI/CD for Machine Learning</li>
+        <li>Cloud (AWS SageMaker / Azure ML)</li>
+      </ul>
+      <a href="https://chatgpt.com/?q=What+is+MLOps?+Teach+me+how+to+deploy+a+machine+learning+model+using+Docker+and+FastAPI." target="_blank" class="ai-btn">
+        🤖 Ask AI Tutor
+      </a>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© 2026 AI Study Roadmap • Built for the Future of Data</p>
+  </footer>
+
+</body>
+</html>

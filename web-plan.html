@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>90-Day Full Stack Roadmap | SkillPath AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #09090b;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.4);
+            --text-secondary: #a1a1aa;
+            --success: #22c55e;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: white;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* --- Progress Bar (Top Fixed) --- */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.05);
+            z-index: 1000;
+        }
+        #progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent), #ec4899);
+            transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* --- Back Button --- */
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 10px 18px;
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+            z-index: 100;
+        }
+        .back-btn:hover {
+            border-color: var(--accent);
+            transform: translateX(-5px);
+            background: rgba(255,255,255,0.1);
+        }
+
+        header { text-align: center; margin-bottom: 30px; margin-top: 40px; }
+        h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 10px; letter-spacing: -1px; }
+
+        .container { width: 100%; max-width: 800px; position: relative; }
+
+        /* --- Overall Progress Dashboard --- */
+        .dashboard {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 25px;
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        .stat-item h2 { margin: 0; font-size: 1.8rem; color: #fff; }
+        .stat-item p { margin: 5px 0 0 0; font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- Phase Cards --- */
+        .phase-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 35px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(12px);
+            transition: 0.4s;
+            animation: slideUp 0.6s ease-out forwards;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .phase-title { color: var(--accent); font-weight: 800; font-size: 1.3rem; }
+        .days-count { font-size: 0.85rem; color: var(--text-secondary); background: rgba(255,255,255,0.07); padding: 6px 14px; border-radius: 20px; }
+
+        .task-list { list-style: none; padding: 0; }
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 18px;
+            border-radius: 16px;
+            transition: 0.3s;
+            cursor: pointer;
+            border: 1px solid transparent;
+            margin-bottom: 8px;
+        }
+        .task-item:hover { background: rgba(255,255,255,0.04); border-color: var(--glass-border); }
+
+        .checkbox {
+            min-width: 24px;
+            height: 24px;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            margin-top: 2px;
+        }
+
+        .task-item.completed .checkbox { background: var(--accent); border-color: var(--accent); }
+        .task-item.completed .checkbox::after { content: '✓'; color: white; font-size: 16px; font-weight: 800; }
+        .task-item.completed .task-text { color: var(--text-secondary); opacity: 0.6; text-decoration: line-through; }
+
+        .task-text h4 { margin: 0 0 6px 0; font-size: 1.1rem; color: #fff; }
+        .task-text p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); }
+
+        .reset-btn {
+            background: transparent;
+            color: #ff4444;
+            border: 1px solid #ff4444;
+            padding: 8px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .reset-btn:hover { background: #ff4444; color: white; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .dashboard { grid-template-columns: 1fr; }
+            .back-btn { position: relative; top: 0; left: 0; margin-bottom: 20px; align-self: flex-start; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="progress-container"><div id="progress-bar"></div></div>
+
+<a href="index.html" class="back-btn">
+    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+    Home
+</a>
+
+<header>
+    <h1>🚀 Roadmap</h1>
+    <p class="subtitle">Full Stack Web Development</p>
+</header>
+
+<div class="container">
+
+    <div class="dashboard">
+        <div class="stat-item">
+            <h2 id="percent-text">0%</h2>
+            <p>Completed</p>
+        </div>
+        <div class="stat-item">
+            <h2 id="tasks-text">0/18</h2>
+            <p>Tasks Done</p>
+        </div>
+        <div class="stat-item">
+            <h2 id="days-left">90</h2>
+            <p>Days To Go</p>
+        </div>
+    </div>
+
+    <div class="phase-card">
+        <div class="phase-header">
+            <span class="phase-title">FRONTEND CORE</span>
+            <span class="days-count">DAYS 1 - 30</span>
+        </div>
+        
+        <div class="task-list">
+            <div class="task-item" onclick="toggleTask(this)">
+                <div class="checkbox"></div>
+                <div class="task-text"><h4>Days 1-3: HTML Basics</h4><p>Tags, structure, images, links.</p></div>
+            </div>
+            <div class="task-item" onclick="toggleTask(this)">
+                <div class="checkbox"></div>
+                <div class="task-text"><h4>Days 4-6: Forms & Semantics</h4><p>SEO and User Input.</p></div>
+            </div>
+            <div class="task-item" onclick="toggleTask(this)">
+                <div class="checkbox"></div>
+                <div class="task-text"><h4>Days 7-10: CSS Basics</h4><p>Box model and spacing.</p></div>
+            </div>
+            <div class="task-item" onclick="toggleTask(this)">
+                <div class="checkbox"></div>
+                <div class="task-text"><h4>Days 11-15: Flexbox & Grid</h4><p>Modern Layouts.</p></div>
+            </div>
+            <div class="task-item" onclick="toggleTask(this)">
+                <div class="checkbox"></div>
+                <div class="task-text"><h4>Days 16-20: JS Basics</h4><p>Logic and variables.</p></div>
+            </div>
+            <div class="task-item" onclick="toggleTask(this)">
+                <div class="checkbox"></div>
+                <div class="task-text"><h4>Days 21-30: DOM & Mini Projects</h4><p>Build a Landing Page.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="phase-card">
+        <div class="phase-header">
+            <span class="phase-title">REACT MASTERY</span>
+            <span class="days-count">DAYS 31 - 60</span>
+        </div>
+        
+        <div class="task-list">
+            <div class="task-item" onclick="toggleTask(this)">
+                <div class="checkbox"></div>
+                <div class="task-text"><h4>Days 31-40: Components & Props</h4><p>Building blocks of React.</p></div>
+            </div>
+            <div class="task-item" onclick="toggleTask(this)">
+                <div class="checkbox"></div>
+                <div class="task-text"><h4>Days 41-50: Hooks & State</h4><p>useState and useEffect.</p></div>
+            </div>
+            <div class="task-item" onclick="toggleTask(this)">
+                <div class="checkbox"></div>
+                <div class="task-text"><h4>Days 51-60: API & Routing</h4><p>Axios and React Router.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="phase-card">
+        <div class="phase-header">
+            <span class="phase-title">BACKEND & DATABASE</span>
+            <span class="days-count">DAYS 61 - 90</span>
+        </div>
+        
+        <div class="task-list">
+            <div class="task-item" onclick="toggleTask(this)">
+                <div class="checkbox"></div>
+                <div class="task-text"><h4>Days 61-70: Node & Express</h4><p>Building Server APIs.</p></div>
+            </div>
+            <div class="task-item" onclick="toggleTask(this)">
+                <div class="checkbox"></div>
+                <div class="task-text"><h4>Days 71-80: MongoDB & Auth</h4><p>CRUD and JWT Login.</p></div>
+            </div>
+            <div class="task-item" onclick="toggleTask(this)">
+                <div class="checkbox"></div>
+                <div class="task-text"><h4>Days 81-90: Deployment</h4><p>Vercel, Render & GitHub.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <button class="reset-btn" onclick="resetProgress()">Reset Progress</button>
+
+</div>
+
+<script>
+function updateStats() {
+    const allTasks = document.querySelectorAll('.task-item');
+    const completedTasks = document.querySelectorAll('.task-item.completed');
+    
+    const totalCount = allTasks.length;
+    const completedCount = completedTasks.length;
+    const percent = Math.round((completedCount / totalCount) * 100);
+    
+    // Update Progress Bar
+    document.getElementById('progress-bar').style.width = percent + '%';
+    
+    // Update Dashboard
+    document.getElementById('percent-text').innerText = percent + '%';
+    document.getElementById('tasks-text').innerText = `${completedCount}/${totalCount}`;
+    
+    // Update Days Left (Estimate based on 90 days)
+    const daysLeft = 90 - Math.round((completedCount / totalCount) * 90);
+    document.getElementById('days-left').innerText = daysLeft;
+}
+
+function toggleTask(element) {
+    element.classList.toggle('completed');
+    updateStats();
+    
+    if (navigator.vibrate) navigator.vibrate(5);
+}
+
+function resetProgress() {
+    if(confirm("Are you sure you want to clear your progress?")) {
+        document.querySelectorAll('.task-item').forEach(task => task.classList.remove('completed'));
+        updateStats();
+    }
+}
+
+// Initial Run
+updateStats();
+</script>
+
+</body>
+</html>

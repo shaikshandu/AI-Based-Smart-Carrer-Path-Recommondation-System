@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Prep | SkillPath AI</title>
+    <link rel="stylesheet" href="interview-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="aurora-1"></div>
+    <div class="aurora-2"></div>
+
+    <nav class="glass-nav">
+        <a href="index.html" class="back-btn">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            Back to Home
+        </a>
+        <div class="logo">🎤 Interview Mode</div>
+    </nav>
+
+    <div class="main-container">
+        <header class="page-header">
+            <h1>Ace Your Interview</h1>
+            <p>Curated technical questions for Data Science & AI roles.</p>
+        </header>
+
+        <div class="category-scroll">
+            <button class="filter-btn active" onclick="filterQuestions('all')">All</button>
+            <button class="filter-btn" onclick="filterQuestions('python')">Python</button>
+            <button class="filter-btn" onclick="filterQuestions('sql')">SQL</button>
+            <button class="filter-btn" onclick="filterQuestions('ml')">Machine Learning</button>
+            <button class="filter-btn" onclick="filterQuestions('stats')">Statistics</button>
+            <button class="filter-btn" onclick="filterQuestions('dl')">Deep Learning</button>
+        </div>
+
+        <div id="questions-container" class="questions-list">
+            </div>
+
+    </div>
+
+    <script src="interview-script.js"></script>
+</body>
+</html>
