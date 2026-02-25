@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Python for Data Science</title>
+  <style>
+  pre {
+  background-color: #0f172a;
+  color: #22c55e;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+code {
+  font-family: "Courier New", monospace;
+}
+</style>
+</head>
+
+
+<body>
+
+  <h1>Python for Data Science</h1>
+  <p>Complete beginner to advanced guide.</p>
+
+  <h2>Module 1: Intoduction</h2>
+
+<pre><code>
+# Introduction
+
+print("Hello World!")   # print hello world
+
+print(2 + 3)   # addition(+)
+print(3 - 1)   # subtraction(-)
+print(2 * 3)   # multiplication(*)
+print(3 + 2)   # addition(+)
+print(3 - 2)   # subtraction(-)
+print(3 * 2)   # multiplication(*)
+print(3 / 2)   # division(/)
+print(3 ** 2)  # exponential(**)
+print(3 % 2)   # modulus(%)
+print(3 // 2)  # Floor division operator(//)
+
+# Checking data types
+
+print(type(10))                  # Int
+print(type(3.14))                # Float
+print(type(1 + 3j))              # Complex
+print(type('Asabeneh'))          # String
+print(type([1, 2, 3]))           # List
+print(type({'name': 'Asabeneh'}))  # Dictionary
+print(type({9.8, 3.14, 2.7}))    # Tuple
+</code></pre>
+
+  <h2>Module 2: Built In Functions</h2>
+<p>
+In Python we have lots of built-in functions. <br> Built-in functions are globally available for your use that mean you can make use of the built-in functions without importing or configuring. 
+<br>Some of the most commonly used Python built-in functions are the following: <br> print(), len(), type(), int(), float(), str(), input(), list(), dict(), min(), max(), sum(), sorted(), open(), file(), help(), and dir(). 
+<br>
+
+<img src="builtin-functions.png" alt="Description of image" class="builtin-functions">
+
+</p>
+<style>
+.builtin-functions{
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  margin: 20px 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+</style>
+
+<h2>Module 3: Operators</h2>
+
+<p>
+Python language supports several types of operators. In this section, we will focus on a few of them.
+</p>
+
+<h3>Assignment Operators</h3>
+
+<p>
+Assignment operators are used to assign values to variables. Let us take = as an example.
+<br><br>
+The equal sign in mathematics shows that two values are equal, however in Python it means we are storing a value in a variable.
+<br><br>
+The table below shows the different types of Python assignment operators.
+</p>
+
+<style>
+.operator-img{
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  margin: 20px 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+</style>
+
+
+<img src="assignment_operators.png" 
+     alt="Assignment Operators" 
+     class="operator-img">
+<br>
+<img src="arithmetic_operators.png" 
+     alt="Arithmetic Operators" 
+     class="operator-img">
+
+
+<h2>Module 4: Control Flow & Conditional Statements</h2>
+
+<li>If Statement:</li>
+<p>
+In Python and other programming languages, the <b>if</b> keyword is used to check whether a condition is true.
+If the condition is true, the block of code inside the if statement will execute.
+Remember that indentation is very important in Python.
+</p>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+# syntax
+if condition:
+    # code runs if condition is True
+</code></pre>
+
+
+
+<li>If Else Statement:</li>
+<p>
+If the condition is true, the first block will execute.
+If the condition is false, the code inside the <b>else</b> block will execute.
+</p>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+# syntax
+if condition:
+    # runs if True
+else:
+    # runs if False
+</code></pre>
+
+
+
+<li>If Elif Else Statement:</li>
+<p>
+When we have multiple conditions to check, we use <b>elif</b>.
+Python checks conditions one by one. Once a condition becomes true, it stops checking further.
+</p>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+# syntax
+if condition1:
+    # runs if condition1 is True
+elif condition2:
+    # runs if condition2 is True
+else:
+    # runs if all conditions are False
+</code></pre>
+
+
+
+<li>For Loop:</li>
+<p>
+A <b>for loop</b> is used to iterate over a sequence such as a list, tuple, string, or range.
+It repeats a block of code multiple times.
+</p>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+# syntax
+for variable in sequence:
+    # code runs for each item
+</code></pre>
+
+
+
+<li>While Loop:</li>
+<p>
+A <b>while loop</b> executes a block of code as long as the condition remains true.
+Be careful to avoid infinite loops.
+</p>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+# syntax
+while condition:
+    # code runs while condition is True
+</code></pre>
+
+
+
+<li>Loop Control Statements:</li>
+<p>
+Python provides special keywords to control loops:
+<b>break</b> – Stops the loop completely.
+<b>continue</b> – Skips the current iteration.
+<b>pass</b> – Does nothing (placeholder).
+</p>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+for i in range(5):
+    if i == 3:
+        break
+    print(i)
+</code></pre>
+
+
+
+<h2>Module 5: Data Structures</h2>
+<li>Lists:</li>
+<p>
+A List is a collection data type in Python which is ordered and changeable (mutable).
+Lists allow duplicate values and are written inside square brackets [].
+We use lists when we want to store multiple items in a single variable.
+</p>
+
+<p><b>List Syntax</b></p>
+<pre><code>
+# Creating a list
+my_list = [1, 2, 3, 4]
+
+# Accessing elements
+print(my_list[0])
+
+# Adding element
+my_list.append(5)
+</code></pre>
+
+
+
+<li>Tuples:</li>
+<p>
+A Tuple is similar to a list but it is immutable (cannot be changed after creation).
+Tuples are written using parentheses ().
+They are used when the data should remain constant.
+</p>
+
+<p><b>Tuple Syntax</b></p>
+<pre><code>
+# Creating a tuple
+my_tuple = (10, 20, 30)
+
+# Accessing elements
+print(my_tuple[1])
+</code></pre>
+
+
+
+<li>Sets:</li>
+<p>
+A Set is an unordered collection that does not allow duplicate values.
+Sets are written inside curly brackets {}.
+They are mainly used to remove duplicates and perform mathematical operations like union and intersection.
+</p>
+
+<p><b>Set Syntax</b></p>
+<pre><code>
+# Creating a set
+my_set = {1, 2, 2, 3}
+
+# Output will remove duplicates
+print(my_set)
+</code></pre>
+
+
+
+<li>Dictionaries:</li>
+<p>
+A Dictionary stores data in key-value pairs.
+It is written using curly brackets {} with keys and values separated by a colon.
+Dictionaries are very useful for structured data and real-world datasets.
+</p>
+
+<p><b>Dictionary Syntax</b></p>
+<pre><code>
+# Creating a dictionary
+student = {
+    "name": "Farhan",
+    "age": 21
+}
+
+# Accessing value
+print(student["name"])
+
+# Adding new key-value pair
+student["grade"] = "A"
+</code></pre>
+
+
+
+<li>Nested Data Structures:</li>
+<p>
+Nested data structures means storing one data structure inside another.
+For example, a list of dictionaries.
+This is very common in data science when handling datasets.
+</p>
+
+<p><b>Nested Structure Syntax</b></p>
+<pre><code>
+data = [
+    {"name": "Alice", "score": 85},
+    {"name": "Bob", "score": 90}
+]
+
+print(data[0]["name"])
+</code></pre>
+
+
+<h2>Module 6: Functions & Lambda Expressions</h2>
+
+<li>Functions:</li>
+<p>
+A function is a block of reusable code that performs a specific task.
+Functions help in organizing code, avoiding repetition, and improving readability.
+In Python, functions are defined using the <b>def</b> keyword.
+</p>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+# syntax
+def function_name(parameters):
+    # code block
+    return result
+</code></pre>
+
+
+
+<li>Calling a Function:</li>
+<p>
+After defining a function, we need to call it to execute the code inside it.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+def greet():
+    print("Hello, Welcome to Python!")
+
+greet()
+</code></pre>
+
+
+
+<li>Function with Parameters:</li>
+<p>
+Parameters allow us to pass data into a function.
+This makes functions more flexible and reusable.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+def greet(name):
+    print("Hello", name)
+
+greet("Farhan")
+</code></pre>
+
+
+
+<li>Return Statement:</li>
+<p>
+The <b>return</b> keyword is used to send a result back from a function.
+Without return, the function only executes but does not give back a value.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+def add(a, b):
+    return a + b
+
+result = add(5, 3)
+print(result)
+</code></pre>
+
+
+
+<li>Default Parameters:</li>
+<p>
+Python allows default values for parameters.
+If no value is passed while calling the function, the default value will be used.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+def greet(name="Guest"):
+    print("Hello", name)
+
+greet()
+greet("Farhan")
+</code></pre>
+
+
+
+<li>Lambda Functions:</li>
+<p>
+A lambda function is a small anonymous function defined using the <b>lambda</b> keyword.
+It is used for short, simple operations.
+Lambda functions can have multiple parameters but only one expression.
+</p>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+# syntax
+lambda arguments: expression
+</code></pre>
+
+<p><b>Example:</b></p>
+<pre><code>
+add = lambda a, b: a + b
+print(add(4, 6))
+</code></pre>
+
+
+
+<li>Why Functions Are Important in Data Science:</li>
+<p>
+Functions help in:
+- Reusing data processing steps
+- Creating reusable analysis pipelines
+- Writing clean and modular code
+- Avoiding repetition in large projects
+</p>
+
+<h2>Module 7: Object-Oriented Programming (OOP)</h2>
+
+<li>Introduction to OOP:</li>
+<p>
+Object-Oriented Programming (OOP) is a programming paradigm that organizes code using objects and classes.
+It helps in building scalable, reusable, and organized programs.
+In Python, almost everything is an object.
+</p>
+
+
+
+<li>Class and Object:</li>
+<p>
+A <b>class</b> is a blueprint for creating objects.
+An <b>object</b> is an instance of a class.
+We use the <b>class</b> keyword to define a class.
+</p>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+# syntax
+class ClassName:
+    def __init__(self, parameters):
+        self.attribute = parameters
+
+# creating object
+obj = ClassName(value)
+</code></pre>
+
+
+
+<li>Constructor (__init__ method):</li>
+<p>
+The <b>__init__</b> method is a special method that runs automatically when an object is created.
+It is used to initialize object attributes.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+class Student:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+student1 = Student("Farhan", 21)
+print(student1.name)
+</code></pre>
+
+
+
+<li>Instance Methods:</li>
+<p>
+Instance methods are functions defined inside a class.
+They operate on the object’s data using the <b>self</b> keyword.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self):
+        print("Hello, my name is", self.name)
+
+student1 = Student("Farhan")
+student1.greet()
+</code></pre>
+
+
+
+<li>Inheritance:</li>
+<p>
+Inheritance allows one class to inherit properties and methods from another class.
+It helps in code reuse and creating hierarchical relationships.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+class Person:
+    def greet(self):
+        print("Hello")
+
+class Student(Person):
+    pass
+
+s = Student()
+s.greet()
+</code></pre>
+
+
+
+<li>Encapsulation:</li>
+<p>
+Encapsulation means restricting direct access to some data.
+In Python, we use a double underscore (__) to make attributes private.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance
+
+    def get_balance(self):
+        return self.__balance
+
+account = BankAccount(1000)
+print(account.get_balance())
+</code></pre>
+
+
+
+<li>Why OOP is Important in Data Science:</li>
+<p>
+OOP helps in:
+- Building machine learning models as objects
+- Organizing large projects
+- Writing reusable and maintainable code
+- Creating data processing pipelines
+</p>
+
+<h2>Module 8: NumPy for Data Science</h2>
+
+<li>Introduction to NumPy:</li>
+<p>
+NumPy (Numerical Python) is a powerful library used for numerical computations.
+It provides support for large multi-dimensional arrays and mathematical functions.
+NumPy is faster and more efficient than Python lists for numerical operations.
+</p>
+
+
+
+<li>Creating NumPy Arrays:</li>
+<p>
+NumPy arrays are created using the <b>array()</b> function.
+Arrays can be one-dimensional or multi-dimensional.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+import numpy as np
+
+arr = np.array([1, 2, 3, 4])
+print(arr)
+</code></pre>
+
+
+
+<li>Array Attributes:</li>
+<p>
+NumPy arrays have useful attributes such as shape, size, and data type.
+These help in understanding the structure of the data.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+print(arr.shape)
+print(arr.size)
+print(arr.dtype)
+</code></pre>
+
+
+
+<li>Array Operations:</li>
+<p>
+NumPy allows element-wise operations such as addition, subtraction, multiplication, and division.
+Operations are faster compared to normal Python lists.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+arr = np.array([1, 2, 3])
+
+print(arr + 2)
+print(arr * 3)
+</code></pre>
+
+
+
+<li>Indexing and Slicing:</li>
+<p>
+We can access specific elements using indexing and slicing.
+This is very important in data manipulation.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+arr = np.array([10, 20, 30, 40])
+
+print(arr[0])
+print(arr[1:3])
+</code></pre>
+
+
+
+<li>Mathematical Functions:</li>
+<p>
+NumPy provides built-in mathematical functions such as mean, median, standard deviation, and sum.
+These are widely used in data analysis.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+arr = np.array([1, 2, 3, 4])
+
+print(np.mean(arr))
+print(np.sum(arr))
+print(np.std(arr))
+</code></pre>
+
+
+
+<li>Why NumPy is Important in Data Science:</li>
+<p>
+NumPy is the foundation of libraries like Pandas, Scikit-learn, and TensorFlow.
+It helps in:
+- Handling large datasets
+- Performing fast numerical computations
+- Preparing data for machine learning
+</p>
+
+<h2>Module 9: Pandas for Data Analysis</h2>
+
+<li>Introduction to Pandas:</li>
+<p>
+Pandas is a powerful Python library used for data manipulation and data analysis.
+It provides easy-to-use data structures like Series and DataFrame.
+Pandas is built on top of NumPy and is widely used in Data Science and Machine Learning.
+</p>
+
+
+
+<li>Pandas Series:</li>
+<p>
+A Series is a one-dimensional labeled array.
+It can hold different data types like integers, strings, and floats.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+import pandas as pd
+
+data = pd.Series([10, 20, 30, 40])
+print(data)
+</code></pre>
+
+
+
+<li>Pandas DataFrame:</li>
+<p>
+A DataFrame is a two-dimensional table-like data structure.
+It contains rows and columns similar to an Excel sheet.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+data = {
+    "Name": ["Farhan", "Ali", "Sara"],
+    "Age": [21, 22, 20]
+}
+
+df = pd.DataFrame(data)
+print(df)
+</code></pre>
+
+
+
+<li>Reading Data from Files:</li>
+<p>
+Pandas can read data from CSV, Excel, and other file formats.
+This is commonly used in real-world data analysis.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+df = pd.read_csv("data.csv")
+print(df.head())
+</code></pre>
+
+
+
+<li>Selecting and Filtering Data:</li>
+<p>
+We can select specific columns or filter rows based on conditions.
+This helps in analyzing specific parts of the dataset.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+print(df["Name"])          # Select column
+print(df[df["Age"] > 20])  # Filter rows
+</code></pre>
+
+
+
+<li>Handling Missing Values:</li>
+<p>
+Real-world data often contains missing values.
+Pandas provides functions to detect and handle missing data.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+print(df.isnull().sum())
+df = df.dropna()
+</code></pre>
+
+
+
+<li>Basic Data Analysis Functions:</li>
+<p>
+Pandas provides powerful built-in functions for analysis.
+These include mean, median, count, and summary statistics.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+print(df.describe())
+print(df["Age"].mean())
+</code></pre>
+
+
+
+<li>Why Pandas is Important in Data Science:</li>
+<p>
+Pandas is used for:
+- Cleaning data
+- Transforming datasets
+- Preparing data for machine learning
+- Performing exploratory data analysis (EDA)
+
+Almost every Data Science project starts with Pandas.
+</p>
+
+<h2>Module 10: Data Visualization (Matplotlib & Seaborn)</h2>
+
+<li>Introduction to Data Visualization:</li>
+<p>
+Data Visualization is the process of representing data in graphical form.
+It helps in understanding patterns, trends, and relationships in data.
+In Data Science, visualization is used during Exploratory Data Analysis (EDA).
+</p>
+
+
+
+<li>Introduction to Matplotlib:</li>
+<p>
+Matplotlib is a Python library used for creating static, animated, and interactive visualizations.
+It is the foundation library for plotting graphs in Python.
+</p>
+
+<p><b>Example (Line Plot):</b></p>
+<pre><code>
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4]
+y = [10, 20, 25, 30]
+
+plt.plot(x, y)
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.title("Line Plot Example")
+plt.show()
+</code></pre>
+
+
+
+<li>Bar Chart:</li>
+<p>
+Bar charts are used to compare different categories of data.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+categories = ["A", "B", "C"]
+values = [5, 7, 3]
+
+plt.bar(categories, values)
+plt.title("Bar Chart Example")
+plt.show()
+</code></pre>
+
+
+
+<li>Histogram:</li>
+<p>
+A histogram shows the distribution of numerical data.
+It helps in understanding frequency distribution.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+data = [10, 20, 20, 30, 40, 40, 40]
+
+plt.hist(data)
+plt.title("Histogram Example")
+plt.show()
+</code></pre>
+
+
+
+<li>Introduction to Seaborn:</li>
+<p>
+Seaborn is built on top of Matplotlib.
+It provides more attractive and informative statistical graphics.
+It is commonly used in Data Science for advanced visualizations.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+import seaborn as sns
+import pandas as pd
+
+data = pd.DataFrame({
+    "Age": [21, 22, 23, 24, 25],
+    "Score": [60, 65, 70, 75, 80]
+})
+
+sns.scatterplot(x="Age", y="Score", data=data)
+plt.show()
+</code></pre>
+
+
+
+<li>Why Data Visualization is Important:</li>
+<p>
+Visualization helps in:
+- Identifying trends and patterns
+- Detecting outliers
+- Understanding relationships between variables
+- Presenting results clearly to stakeholders
+
+It plays a key role in Exploratory Data Analysis (EDA).
+</p>
+
+<h2>Module 11: Statistics for Data Science</h2>
+
+<li>Introduction to Statistics:</li>
+<p>
+Statistics is the science of collecting, analyzing, interpreting, and presenting data.
+In Data Science, statistics helps in understanding data and making informed decisions.
+It provides the foundation for Machine Learning algorithms.
+</p>
+
+
+
+<li>Types of Statistics:</li>
+<p>
+There are two main types of statistics:
+</p>
+
+<p>
+<b>1. Descriptive Statistics:</b> Summarizes and describes the features of a dataset.<br>
+<b>2. Inferential Statistics:</b> Makes predictions or inferences about a population based on a sample.
+</p>
+
+
+
+<li>Measures of Central Tendency:</li>
+<p>
+These measures describe the center of a dataset.
+</p>
+
+<p>
+<b>Mean:</b> The average value.<br>
+<b>Median:</b> The middle value after sorting.<br>
+<b>Mode:</b> The most frequent value.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+import numpy as np
+
+data = [10, 20, 30, 40]
+
+print(np.mean(data))
+print(np.median(data))
+</code></pre>
+
+
+
+<li>Measures of Dispersion:</li>
+<p>
+These measures describe how spread out the data is.
+</p>
+
+<p>
+<b>Range:</b> Difference between max and min values.<br>
+<b>Variance:</b> Average of squared differences from the mean.<br>
+<b>Standard Deviation:</b> Square root of variance.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+print(np.var(data))
+print(np.std(data))
+</code></pre>
+
+
+
+<li>Probability Basics:</li>
+<p>
+Probability measures the likelihood of an event occurring.
+It ranges from 0 (impossible) to 1 (certain).
+Probability is widely used in Machine Learning models.
+</p>
+
+
+
+<li>Normal Distribution:</li>
+<p>
+A normal distribution is a bell-shaped curve.
+Many real-world datasets follow a normal distribution.
+It is important for hypothesis testing and predictive modeling.
+</p>
+
+
+
+<li>Correlation:</li>
+<p>
+Correlation measures the relationship between two variables.
+It ranges from -1 to +1.
+Positive correlation means variables move in the same direction.
+Negative correlation means variables move in opposite directions.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+import pandas as pd
+
+df = pd.DataFrame({
+    "Age": [20, 21, 22, 23],
+    "Score": [60, 65, 70, 75]
+})
+
+print(df.corr())
+</code></pre>
+
+
+
+<li>Why Statistics is Important in Data Science:</li>
+<p>
+Statistics helps in:
+- Understanding data patterns
+- Making predictions
+- Building Machine Learning models
+- Evaluating model performance
+
+Without statistics, Data Science is incomplete.
+</p>
+
+<h2>Module 12: Machine Learning Basics</h2>
+
+<li>Introduction to Machine Learning:</li>
+<p>
+Machine Learning (ML) is a branch of Artificial Intelligence that enables systems 
+to learn from data and make predictions without being explicitly programmed.
+ML algorithms improve automatically through experience.
+</p>
+
+
+
+<li>Types of Machine Learning:</li>
+<p>
+There are three main types of Machine Learning:
+</p>
+
+<p>
+<b>1. Supervised Learning:</b> The model is trained using labeled data.<br>
+Examples: Linear Regression, Logistic Regression, Decision Trees.<br><br>
+
+<b>2. Unsupervised Learning:</b> The model works with unlabeled data.<br>
+Examples: Clustering (K-Means), Dimensionality Reduction.<br><br>
+
+<b>3. Reinforcement Learning:</b> The model learns by interacting with an environment.
+</p>
+
+
+
+<li>Supervised Learning Example (Linear Regression):</li>
+<p>
+Linear Regression is used to predict continuous values.
+For example, predicting house prices based on size.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+from sklearn.linear_model import LinearRegression
+import numpy as np
+
+X = np.array([[1], [2], [3], [4]])
+y = np.array([10, 20, 30, 40])
+
+model = LinearRegression()
+model.fit(X, y)
+
+prediction = model.predict([[5]])
+print(prediction)
+</code></pre>
+
+
+
+<li>Model Training Process:</li>
+<p>
+1. Collect Data<br>
+2. Clean & Prepare Data<br>
+3. Split into Training and Testing Sets<br>
+4. Train the Model<br>
+5. Evaluate Performance<br>
+6. Make Predictions
+</p>
+
+
+
+<li>Model Evaluation:</li>
+<p>
+To measure model performance, we use evaluation metrics.
+</p>
+
+<p>
+For Regression:<br>
+- Mean Absolute Error (MAE)<br>
+- Mean Squared Error (MSE)<br><br>
+
+For Classification:<br>
+- Accuracy<br>
+- Precision<br>
+- Recall<br>
+- F1 Score
+</p>
+
+
+
+<li>Overfitting and Underfitting:</li>
+<p>
+<b>Overfitting:</b> Model performs well on training data but poorly on new data.<br>
+<b>Underfitting:</b> Model fails to capture patterns in the data.<br>
+A good model balances both.
+</p>
+
+
+
+<li>Why Machine Learning is Important:</li>
+<p>
+Machine Learning is used in:
+- Recommendation Systems (Netflix, Amazon)
+- Fraud Detection
+- Image Recognition
+- Chatbots
+- Predictive Analytics
+
+It is one of the most in-demand skills in Data Science.
+</p>
+
+<h2>Module 13: Practice Exercises & Mini Projects</h2>
+
+<li>Beginner Level Exercises:</li>
+<p>
+These exercises help strengthen Python fundamentals.
+</p>
+
+<p><b>1. Basic Calculator:</b><br>
+Create a calculator that performs addition, subtraction, multiplication, and division using user input.
+</p>
+
+<p><b>2. Even or Odd Checker:</b><br>
+Write a program to check whether a number is even or odd.
+</p>
+
+<p><b>3. Prime Number Checker:</b><br>
+Check whether a given number is prime.
+</p>
+
+<p><b>4. Factorial Program:</b><br>
+Find the factorial of a number using loops or recursion.
+</p>
+
+<p><b>5. Fibonacci Series:</b><br>
+Generate Fibonacci series up to n terms.
+</p>
+
+
+
+<li>Intermediate Level Exercises (NumPy & Pandas):</li>
+<p>
+These exercises focus on data handling and analysis.
+</p>
+
+<p><b>1. NumPy Array Operations:</b><br>
+Create a NumPy array and perform mean, median, sum, and standard deviation.
+</p>
+
+<p><b>2. Student Data Analysis:</b><br>
+Create a Pandas DataFrame with student marks and:
+- Calculate average marks
+- Find highest scorer
+- Filter students scoring above 70
+</p>
+
+<p><b>3. CSV File Analysis:</b><br>
+Load a CSV file and:
+- Display first 5 rows
+- Check missing values
+- Show summary statistics
+</p>
+
+
+
+<li>Data Visualization Practice:</li>
+<p>
+Create the following visualizations:
+</p>
+
+<p>
+- Line chart showing monthly sales<br>
+- Bar chart comparing product categories<br>
+- Histogram showing exam score distribution<br>
+- Scatter plot showing relationship between two variables
+</p>
+
+
+
+<li>Mini Projects:</li>
+
+<p><b>1. Sales Data Analysis Project:</b><br>
+- Load a sales dataset<br>
+- Clean missing values<br>
+- Find total sales per category<br>
+- Visualize monthly trends<br>
+- Present insights
+</p>
+
+<p><b>2. Student Performance Analysis:</b><br>
+- Analyze student marks dataset<br>
+- Calculate average, median, and standard deviation<br>
+- Identify top performers<br>
+- Visualize performance trends
+</p>
+
+<p><b>3. House Price Prediction (Machine Learning):</b><br>
+- Load housing dataset<br>
+- Split into training & testing data<br>
+- Train Linear Regression model<br>
+- Evaluate model performance<br>
+- Predict new house price
+</p>
+
+
+
+<li>Capstone Project (Advanced):</li>
+<p>
+Build a complete Data Science project:
+</p>
+
+<p>
+1. Choose a real dataset (Kaggle or open dataset)<br>
+2. Perform data cleaning<br>
+3. Conduct exploratory data analysis (EDA)<br>
+4. Apply visualization<br>
+5. Build a machine learning model<br>
+6. Evaluate performance<br>
+7. Present findings in a report
+</p>
+
+
+<h2>Module 14: Quiz & Assessment</h2>
+
+<!-- MODULE 1 -->
+<h3>Module 1: Introduction to Python</h3>
+
+<p><b>1. Python is a ______ language.</b></p>
+a) Compiled only <br>
+b) Interpreted <br>
+c) Machine level <br>
+d) Assembly <br>
+<b>Answer:</b> b <br><br>
+
+<p><b>2. Which function is used to display output?</b></p>
+a) input() <br>
+b) print() <br>
+c) show() <br>
+d) display() <br>
+<b>Answer:</b> b <br><br>
+
+
+
+<!-- MODULE 2 -->
+<h3>Module 2: Built-in Functions</h3>
+
+<p><b>1. Which function returns the length of a list?</b></p>
+a) size() <br>
+b) count() <br>
+c) len() <br>
+d) length() <br>
+<b>Answer:</b> c <br><br>
+
+<p><b>2. Which function converts a string to integer?</b></p>
+a) str() <br>
+b) int() <br>
+c) float() <br>
+d) type() <br>
+<b>Answer:</b> b <br><br>
+
+
+
+<!-- MODULE 3 -->
+<h3>Module 3: Operators</h3>
+
+<p><b>1. Which operator is used for exponentiation?</b></p>
+a) ^ <br>
+b) ** <br>
+c) // <br>
+d) % <br>
+<b>Answer:</b> b <br><br>
+
+<p><b>2. What is the result of 10 // 3?</b></p>
+a) 3.33 <br>
+b) 3 <br>
+c) 4 <br>
+d) 1 <br>
+<b>Answer:</b> b <br><br>
+
+
+
+<!-- MODULE 4 -->
+<h3>Module 4: Control Flow</h3>
+
+<p><b>1. Which keyword is used for multiple conditions?</b></p>
+a) else if <br>
+b) elif <br>
+c) elseif <br>
+d) condition <br>
+<b>Answer:</b> b <br><br>
+
+<p><b>2. Which loop is used when number of iterations is known?</b></p>
+a) while <br>
+b) do-while <br>
+c) for <br>
+d) repeat <br>
+<b>Answer:</b> c <br><br>
+
+
+
+<!-- MODULE 5 -->
+<h3>Module 5: Data Structures</h3>
+
+<p><b>1. Which data structure is immutable?</b></p>
+a) List <br>
+b) Tuple <br>
+c) Dictionary <br>
+d) Set <br>
+<b>Answer:</b> b <br><br>
+
+<p><b>2. Which data structure stores key-value pairs?</b></p>
+a) List <br>
+b) Tuple <br>
+c) Dictionary <br>
+d) Set <br>
+<b>Answer:</b> c <br><br>
+
+
+
+<!-- MODULE 6 -->
+<h3>Module 6: Functions</h3>
+
+<p><b>1. Which keyword is used to define a function?</b></p>
+a) function <br>
+b) define <br>
+c) def <br>
+d) fun <br>
+<b>Answer:</b> c <br><br>
+
+<p><b>2. What is a lambda function?</b></p>
+a) Named function <br>
+b) Anonymous function <br>
+c) Loop <br>
+d) Class <br>
+<b>Answer:</b> b <br><br>
+
+
+
+<!-- MODULE 7 -->
+<h3>Module 7: OOP</h3>
+
+<p><b>1. What is a blueprint for creating objects?</b></p>
+a) Function <br>
+b) Class <br>
+c) Loop <br>
+d) Variable <br>
+<b>Answer:</b> b <br><br>
+
+<p><b>2. Which method runs automatically when object is created?</b></p>
+a) start() <br>
+b) create() <br>
+c) __init__() <br>
+d) main() <br>
+<b>Answer:</b> c <br><br>
+
+
+
+<!-- MODULE 8 -->
+<h3>Module 8: NumPy</h3>
+
+<p><b>1. NumPy is mainly used for ______.</b></p>
+a) Web development <br>
+b) Game development <br>
+c) Numerical computing <br>
+d) Networking <br>
+<b>Answer:</b> c <br><br>
+
+<p><b>2. Which function creates a NumPy array?</b></p>
+a) array() <br>
+b) list() <br>
+c) create() <br>
+d) make() <br>
+<b>Answer:</b> a <br><br>
+
+
+
+<!-- MODULE 9 -->
+<h3>Module 9: Pandas</h3>
+
+<p><b>1. Pandas DataFrame is ______.</b></p>
+a) 1D structure <br>
+b) 2D table <br>
+c) Loop <br>
+d) Function <br>
+<b>Answer:</b> b <br><br>
+
+<p><b>2. Which function reads a CSV file?</b></p>
+a) read_csv() <br>
+b) open_csv() <br>
+c) load() <br>
+d) file_read() <br>
+<b>Answer:</b> a <br><br>
+
+
+
+<!-- MODULE 10 -->
+<h3>Module 10: Data Visualization</h3>
+
+<p><b>1. Which library is mainly used for plotting graphs?</b></p>
+a) NumPy <br>
+b) Pandas <br>
+c) Matplotlib <br>
+d) Sklearn <br>
+<b>Answer:</b> c <br><br>
+
+<p><b>2. Histogram is used to show ______.</b></p>
+a) Relationship <br>
+b) Distribution <br>
+c) Categories <br>
+d) Text data <br>
+<b>Answer:</b> b <br><br>
+
+
+
+<!-- MODULE 11 -->
+<h3>Module 11: Statistics</h3>
+
+<p><b>1. Mean is ______.</b></p>
+a) Middle value <br>
+b) Most frequent value <br>
+c) Average value <br>
+d) Spread of data <br>
+<b>Answer:</b> c <br><br>
+
+<p><b>2. Correlation ranges between:</b></p>
+a) 0 to 1 <br>
+b) -1 to +1 <br>
+c) 1 to 10 <br>
+d) -10 to +10 <br>
+<b>Answer:</b> b <br><br>
+
+
+
+<!-- MODULE 12 -->
+<h3>Module 12: Machine Learning</h3>
+
+<p><b>1. Which type of ML uses labeled data?</b></p>
+a) Supervised <br>
+b) Unsupervised <br>
+c) Reinforcement <br>
+d) None <br>
+<b>Answer:</b> a <br><br>
+
+<p><b>2. Linear Regression is used for:</b></p>
+a) Classification <br>
+b) Clustering <br>
+c) Regression <br>
+d) Sorting <br>
+<b>Answer:</b> c <br><br>
+
+</body>
+</html>
+
+
+
+
+<head>
+    <style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(59,130,246,0.2),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(168,85,247,0.2),
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #0b1b3a,
+      #1e1b4b
+    );
+  color: white;
+}
+</style>
+</head>

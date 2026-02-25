@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MLOps & Model Deployment</title>
+              <style>
+  pre {
+  background-color: #0f172a;
+  color: #22c55e;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+code {
+  font-family: "Courier New", monospace;
+}
+</style>
+</head>
+<body>
+
+<h1>MLOps & Deployment</h1>
+
+
+
+<h2>Module 1: Introduction to MLOps</h2>
+
+<li>What is MLOps?</li>
+<p>
+MLOps (Machine Learning Operations) is the practice of 
+deploying, monitoring, and maintaining machine learning models in production.
+</p>
+
+<p>
+It combines:
+- Machine Learning
+- DevOps
+- Software Engineering
+</p>
+
+<li>Why MLOps is Important</li>
+<p>
+Building a model is only 20% of the job.
+Deploying and maintaining it is the remaining 80%.
+</p>
+
+<p>
+Challenges:
+- Model versioning
+- Reproducibility
+- Monitoring drift
+- Scaling APIs
+</p>
+
+
+
+<h2>Module 2: Docker Basics</h2>
+
+<li>What is Docker?</li>
+<p>
+Docker is a containerization platform 
+that packages applications with their dependencies.
+</p>
+
+<li>Why Use Docker?</li>
+<p>
+Ensures consistency across environments.
+If it works on your machine, it works everywhere.
+</p>
+
+<li>Dockerfile Example</li>
+
+<pre><code>
+FROM python:3.9
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt
+
+COPY . .
+
+CMD ["python", "app.py"]
+</code></pre>
+
+<li>Key Commands</li>
+
+<pre><code>
+docker build -t model-api .
+docker run -p 8000:8000 model-api
+</code></pre>
+
+
+
+<h2>Module 3: Kubernetes Basics</h2>
+
+<li>What is Kubernetes?</li>
+<p>
+Kubernetes orchestrates containers at scale.
+It manages deployment, scaling, and availability.
+</p>
+
+<li>Core Concepts</li>
+<p>
+Pod – Smallest deployable unit<br>
+Deployment – Manages replicas<br>
+Service – Exposes application<br>
+Cluster – Group of nodes
+</p>
+
+<li>Scaling Concept</li>
+
+<pre><code>
+Horizontal Scaling:
+
+Increase number of replicas
+</code></pre>
+
+<p>
+Used when traffic increases.
+</p>
+
+
+
+<h2>Module 4: FastAPI for Model Serving</h2>
+
+<li>Why FastAPI?</li>
+<p>
+FastAPI is a high-performance web framework 
+for serving machine learning models as APIs.
+</p>
+
+<li>Simple Model API Example</li>
+
+<pre><code>
+from fastapi import FastAPI
+import joblib
+
+app = FastAPI()
+model = joblib.load("model.pkl")
+
+@app.get("/predict")
+def predict(x: float):
+    prediction = model.predict([[x]])
+    return {"prediction": float(prediction)}
+</code></pre>
+
+<li>API Flow</li>
+<p>
+User Request → API Endpoint → Model Prediction → JSON Response
+</p>
+
+
+
+<h2>Module 5: MLflow for Experiment Tracking</h2>
+
+<li>What is MLflow?</li>
+<p>
+MLflow is used to track experiments, 
+log parameters, and manage model versions.
+</p>
+
+<li>Logging Parameters & Metrics</li>
+
+<pre><code>
+import mlflow
+
+with mlflow.start_run():
+    mlflow.log_param("learning_rate", 0.01)
+    mlflow.log_metric("accuracy", 0.92)
+</code></pre>
+
+<li>Why Experiment Tracking Matters</li>
+<p>
+Reproducibility ensures:
+- Same data
+- Same hyperparameters
+- Same results
+</p>
+
+
+
+<h2>Module 6: CI/CD for Machine Learning</h2>
+
+<li>What is CI/CD?</li>
+<p>
+Continuous Integration and Continuous Deployment 
+automate testing and deployment pipelines.
+</p>
+
+<li>ML CI/CD Pipeline</li>
+<p>
+1. Code Push<br>
+2. Run Tests<br>
+3. Train Model<br>
+4. Validate Metrics<br>
+5. Deploy Model<br>
+6. Monitor Performance
+</p>
+
+<li>Automation Goal</li>
+<p>
+Reduce manual intervention 
+and ensure safe deployments.
+</p>
+
+
+
+<h2>Module 7: Cloud Deployment</h2>
+
+<li>AWS SageMaker</li>
+<p>
+Fully managed service for:
+- Training
+- Tuning
+- Deploying models
+</p>
+
+<li>Azure Machine Learning</li>
+<p>
+Provides:
+- Experiment tracking
+- Model registry
+- Managed endpoints
+</p>
+
+<li>Deployment Architecture</li>
+<p>
+Client → API Gateway → Model Endpoint → Database → Monitoring
+</p>
+
+
+
+<h2>Model Monitoring</h2>
+
+<li>Data Drift</li>
+
+<pre><code>
+Drift = Distance(Training Distribution, Production Distribution)
+</code></pre>
+
+<li>Concept Drift</li>
+<p>
+When relationship between input and output changes over time.
+</p>
+
+<li>Monitoring Metrics</li>
+<p>
+Accuracy<br>
+Latency<br>
+Error rate<br>
+Throughput
+</p>
+
+
+
+<h2>Final Insight</h2>
+
+<p>
+MLOps transforms a trained model 
+into a scalable production system.
+</p>
+
+<p>
+Strong AI engineers understand:
+- Modeling
+- Deployment
+- Monitoring
+- Automation
+</p>
+
+<p>
+The future of AI belongs to engineers 
+who can build and deploy end-to-end systems.
+</p>
+
+
+
+</body>
+</html>
+
+
+<head>
+    <style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(59,130,246,0.2),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(168,85,247,0.2),
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #0b1b3a,
+      #1e1b4b
+    );
+  color: white;
+}
+</style>
+</head>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EDA & Visualization for Data Science</title>
+          <style>
+  pre {
+  background-color: #0f172a;
+  color: #22c55e;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+code {
+  font-family: "Courier New", monospace;
+}
+</style>
+</head>
+<body>
+</head>
+<body>
+
+<h1>Exploratory Data Analysis (EDA) & Visualization</h1>
+
+
+
+<h2>Module 1: Introduction to EDA</h2>
+
+<li>What is EDA?</li>
+<p>
+Exploratory Data Analysis (EDA) is the process of 
+understanding data before building models.
+</p>
+
+<p>
+It helps to:
+- Detect patterns
+- Identify anomalies
+- Understand distributions
+- Check relationships
+- Detect missing values
+</p>
+
+<li>Why EDA Matters</li>
+<p>
+Most real-world datasets are messy.
+Without EDA:
+- Models perform poorly
+- Insights become misleading
+- Errors go unnoticed
+</p>
+
+<li>Basic Workflow</li>
+<p>
+1. Load data<br>
+2. Inspect structure<br>
+3. Check missing values<br>
+4. Analyze distributions<br>
+5. Study relationships<br>
+6. Visualize patterns
+</p>
+
+
+
+<h2>Module 2: Descriptive Analysis</h2>
+
+<li>Central Tendency</li>
+
+<pre><code>
+Mean (μ) = (Σ xi) / n
+Median = Middle value after sorting
+Mode = Most frequent value
+</code></pre>
+
+<li>Spread of Data</li>
+
+<pre><code>
+Variance = (Σ (xi - μ)²) / N
+Standard Deviation = √Variance
+Range = Max - Min
+</code></pre>
+
+<li>Outliers</li>
+
+<p>
+Outliers are extreme values that differ significantly 
+from other observations.
+</p>
+
+<pre><code>
+Interquartile Range (IQR):
+
+IQR = Q3 - Q1
+
+Lower Bound = Q1 - 1.5 * IQR
+Upper Bound = Q3 + 1.5 * IQR
+</code></pre>
+
+
+
+<h2>Module 3: Data Visualization Fundamentals</h2>
+
+<li>Why Visualization?</li>
+<p>
+Humans understand visuals faster than tables.
+Visualization transforms numbers into insight.
+</p>
+
+<li>Types of Plots</li>
+
+<p>
+Histogram – Distribution of numerical data<br>
+Bar Chart – Compare categories<br>
+Box Plot – Detect spread and outliers<br>
+Scatter Plot – Relationship between two variables<br>
+Line Chart – Trends over time
+</p>
+
+<li>Distribution Shape</li>
+
+<p>
+Data can be:
+- Normal
+- Skewed right
+- Skewed left
+- Multimodal
+</p>
+
+<pre><code>
+Skewness Formula:
+
+Skewness = (Σ (xi - μ)³ / n) / σ³
+</code></pre>
+
+
+
+<h2>Module 4: Correlation & Relationships</h2>
+
+<li>Correlation</li>
+
+<p>
+Correlation measures the strength and direction 
+of a relationship between two variables.
+</p>
+
+<pre><code>
+Pearson Correlation (r):
+
+r = Σ[(xi - x̄)(yi - ȳ)] 
+    --------------------------------
+    √(Σ(xi - x̄)² * Σ(yi - ȳ)²)
+</code></pre>
+
+<p>
+r ranges from -1 to +1.
+</p>
+
+<li>Interpretation</li>
+<p>
+r = 1 → Perfect positive correlation<br>
+r = -1 → Perfect negative correlation<br>
+r = 0 → No linear relationship
+</p>
+
+<li>Correlation vs Causation</li>
+<p>
+Correlation does not imply causation.
+Two variables moving together does not mean 
+one causes the other.
+</p>
+
+
+
+<h2>Module 5: Feature Engineering & Data Preparation</h2>
+
+<li>Handling Missing Values</li>
+<p>
+Options:
+- Remove rows
+- Fill with mean/median
+- Fill with mode
+</p>
+
+<li>Normalization</li>
+
+<pre><code>
+Min-Max Scaling:
+
+X' = (X - Xmin) / (Xmax - Xmin)
+</code></pre>
+
+<li>Standardization</li>
+
+<pre><code>
+Z-score Scaling:
+
+Z = (X - μ) / σ
+</code></pre>
+
+<li>Encoding Categorical Data</li>
+<p>
+Convert categories into numeric form 
+before model training.
+</p>
+
+
+
+<h2>Final Insight</h2>
+
+<p>
+EDA is not optional.
+It is the foundation of trustworthy analysis.
+</p>
+
+<p>
+Good visualization reveals hidden patterns.
+Poor visualization hides the truth.
+</p>
+
+<p>
+Before building any model, 
+explore the data deeply.
+</p>
+
+<p>
+Strong EDA skills separate beginners from professionals.
+</p>
+
+
+
+</body>
+</html>
+
+
+<head>
+    <style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(59,130,246,0.2),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(168,85,247,0.2),
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #0b1b3a,
+      #1e1b4b
+    );
+  color: white;
+}
+</style>
+</head>

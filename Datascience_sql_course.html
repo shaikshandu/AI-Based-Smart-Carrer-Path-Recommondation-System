@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL FOR DATASCINCE</title>
+      <style>
+  pre {
+  background-color: #0f172a;
+  color: #22c55e;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+code {
+  font-family: "Courier New", monospace;
+}
+</style>
+</head>
+<body>
+    
+
+    <h2>Module 1: Introduction to SQL & Databases</h2>
+
+<li>What is a Database?</li>
+<p>
+Imagine Instagram, Amazon, or your college portal.  
+Where do they store millions of users, posts, and transactions?
+
+They use a <b>Database</b>.
+
+A database is an organized collection of data that can be easily accessed, managed, and updated.
+</p>
+
+
+
+<li>What is SQL?</li>
+<p>
+SQL stands for <b>Structured Query Language</b>.  
+It is used to communicate with databases.
+
+Think of SQL as the language you use to "talk" to your data.
+</p>
+
+<p>
+With SQL, you can:
+- Retrieve data
+- Insert new data
+- Update existing data
+- Delete data
+- Analyze large datasets
+</p>
+
+
+
+<li>Why SQL is Important for Data Science?</li>
+<p>
+Before analyzing data in Python (Pandas), you must first extract it from databases.
+Most companies store data in SQL databases.
+
+Data Scientists use SQL to:
+- Extract business data
+- Filter large datasets
+- Join multiple tables
+- Prepare data for analysis
+</p>
+
+
+
+<li>Types of Databases:</li>
+<p>
+1. <b>Relational Databases (SQL)</b> → Store data in tables (rows & columns)<br>
+2. <b>NoSQL Databases</b> → Store data in flexible formats (JSON, documents)
+</p>
+
+<p>
+In this course, we focus on <b>Relational Databases</b>.
+</p>
+
+
+
+<li>Popular SQL Databases:</li>
+<p>
+- MySQL<br>
+- PostgreSQL<br>
+- SQLite<br>
+- Microsoft SQL Server
+</p>
+
+
+
+<li>What is a Table?</li>
+<p>
+A table is like an Excel sheet:
+- Columns → Attributes (Name, Age, Salary)
+- Rows → Records (Actual data)
+</p>
+
+<p><b>Example Table: Students</b></p>
+
+<pre><code>
+ID | Name     | Age | Marks
+--------------------------------
+1  | Farhan   | 21  | 85
+2  | Aisha    | 20  | 90
+3  | Rahul    | 22  | 78
+</code></pre>
+
+
+
+<li>Basic SQL Query (Your First Query 🎉)</li>
+<p>
+To retrieve all data from a table:
+</p>
+
+<pre><code>
+SELECT * FROM Students;
+</code></pre>
+
+<p>
+This means:
+SELECT → Choose data  
+* → All columns  
+FROM → From which table  
+Students → Table name  
+</p>
+
+
+
+<li>Mini Activity 🧠</li>
+<p>
+If you only want Name and Marks from Students table,  
+how would you write the query?
+
+Try it before checking the answer!
+</p>
+
+<pre><code>
+SELECT Name, Marks FROM Students;
+</code></pre>
+
+
+
+<li>End of Module 1 – What You Learned:</li>
+<p>
+✔ What is a database  
+✔ What is SQL  
+✔ Why SQL is important in Data Science  
+✔ Structure of tables  
+✔ Writing your first SQL query  
+
+You are now officially speaking the language of data 💾🚀
+</p>
+
+
+<h2>Module 2: Basic SQL Commands (SELECT, WHERE, ORDER BY, LIMIT)</h2>
+
+<li>SELECT – Retrieving Data 🎯</li>
+<p>
+The <b>SELECT</b> statement is used to retrieve data from a table.
+It is the most commonly used SQL command.
+</p>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+SELECT column1, column2
+FROM table_name;
+</code></pre>
+
+<p><b>Example:</b></p>
+<pre><code>
+SELECT Name, Marks
+FROM Students;
+</code></pre>
+
+<p>
+This retrieves only the Name and Marks columns from the Students table.
+</p>
+
+
+
+<li>WHERE – Filtering Data 🔍</li>
+<p>
+The <b>WHERE</b> clause is used to filter records based on a condition.
+Think of it like applying a filter in Excel.
+</p>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+SELECT *
+FROM table_name
+WHERE condition;
+</code></pre>
+
+<p><b>Example:</b></p>
+<pre><code>
+SELECT *
+FROM Students
+WHERE Marks > 80;
+</code></pre>
+
+<p>
+This returns students who scored more than 80.
+</p>
+
+
+
+<li>Comparison Operators:</li>
+<p>
+=  → Equal <br>
+>  → Greater than <br>
+<  → Less than <br>
+>= → Greater than or equal <br>
+<= → Less than or equal <br>
+!= → Not equal
+</p>
+
+
+
+<li>ORDER BY – Sorting Data 📊</li>
+<p>
+The <b>ORDER BY</b> clause is used to sort the result.
+By default, it sorts in ascending order.
+</p>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+SELECT *
+FROM table_name
+ORDER BY column_name ASC;
+</code></pre>
+
+<p><b>Example:</b></p>
+<pre><code>
+SELECT *
+FROM Students
+ORDER BY Marks DESC;
+</code></pre>
+
+<p>
+DESC → Highest to lowest <br>
+ASC → Lowest to highest
+</p>
+
+
+
+<li>LIMIT – Controlling Output 📉</li>
+<p>
+The <b>LIMIT</b> clause restricts the number of rows returned.
+This is very useful when working with large datasets.
+</p>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+SELECT *
+FROM table_name
+LIMIT number;
+</code></pre>
+
+<p><b>Example:</b></p>
+<pre><code>
+SELECT *
+FROM Students
+LIMIT 3;
+</code></pre>
+
+<p>
+This returns only the first 3 records.
+</p>
+
+
+
+<li>Combining Everything 🚀</li>
+<p>
+Now let’s combine multiple clauses like a real Data Scientist.
+</p>
+
+<pre><code>
+SELECT Name, Marks
+FROM Students
+WHERE Marks > 70
+ORDER BY Marks DESC
+LIMIT 2;
+</code></pre>
+
+<p>
+This query:
+✔ Selects Name and Marks<br>
+✔ Filters students scoring above 70<br>
+✔ Sorts by highest marks<br>
+✔ Shows top 2 students
+</p>
+
+
+
+<li>Mini Challenge 🧠</li>
+<p>
+Write a query to:
+- Select all students
+- Age greater than 20
+- Sort by Age ascending
+</p>
+
+<p><b>Answer:</b></p>
+<pre><code>
+SELECT *
+FROM Students
+WHERE Age > 20
+ORDER BY Age ASC;
+</code></pre>
+
+
+
+<li>End of Module 2 – What You Learned:</li>
+<p>
+✔ SELECT to retrieve data<br>
+✔ WHERE to filter data<br>
+✔ ORDER BY to sort data<br>
+✔ LIMIT to control results<br>
+✔ Combining multiple clauses
+
+You can now filter and analyze data like a beginner Data Analyst 💪📊
+</p>
+
+<h2>Module 3: Advanced Filtering (AND, OR, IN, BETWEEN, LIKE)</h2>
+
+<li>AND – Multiple Conditions 🔗</li>
+<p>
+The <b>AND</b> operator is used when ALL conditions must be true.
+</p>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+SELECT *
+FROM table_name
+WHERE condition1 AND condition2;
+</code></pre>
+
+<p><b>Example:</b></p>
+<pre><code>
+SELECT *
+FROM Students
+WHERE Marks > 70 AND Age > 20;
+</code></pre>
+
+<p>
+This returns students who scored more than 70 AND are older than 20.
+</p>
+
+
+
+<li>OR – Either Condition ✅</li>
+<p>
+The <b>OR</b> operator is used when ANY one condition can be true.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+SELECT *
+FROM Students
+WHERE Marks > 85 OR Age < 20;
+</code></pre>
+
+<p>
+This returns students who scored above 85 OR are younger than 20.
+</p>
+
+
+
+<li>IN – Multiple Possible Values 📦</li>
+<p>
+The <b>IN</b> operator is used when checking multiple values.
+It makes queries cleaner and easier to read.
+</p>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+SELECT *
+FROM table_name
+WHERE column_name IN (value1, value2, value3);
+</code></pre>
+
+<p><b>Example:</b></p>
+<pre><code>
+SELECT *
+FROM Students
+WHERE Name IN ('Farhan', 'Rahul');
+</code></pre>
+
+
+
+<li>BETWEEN – Range Filtering 📊</li>
+<p>
+The <b>BETWEEN</b> operator selects values within a range.
+It includes both starting and ending values.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+SELECT *
+FROM Students
+WHERE Marks BETWEEN 70 AND 90;
+</code></pre>
+
+<p>
+This returns students whose marks are between 70 and 90.
+</p>
+
+
+
+<li>LIKE – Pattern Matching 🔎</li>
+<p>
+The <b>LIKE</b> operator is used to search for patterns in text.
+</p>
+
+<p>
+% → Any number of characters <br>
+_ → Single character
+</p>
+
+<p><b>Example 1: Names starting with 'A'</b></p>
+<pre><code>
+SELECT *
+FROM Students
+WHERE Name LIKE 'A%';
+</code></pre>
+
+<p><b>Example 2: Names ending with 'n'</b></p>
+<pre><code>
+SELECT *
+FROM Students
+WHERE Name LIKE '%n';
+</code></pre>
+
+
+
+<li>Combining Everything 🚀</li>
+<p>
+Now let's write a powerful query:
+</p>
+
+<pre><code>
+SELECT Name, Marks
+FROM Students
+WHERE Marks BETWEEN 70 AND 95
+AND Name LIKE 'R%'
+ORDER BY Marks DESC;
+</code></pre>
+
+<p>
+This query:
+✔ Filters marks between 70–95<br>
+✔ Selects names starting with 'R'<br>
+✔ Sorts by highest marks
+</p>
+
+
+
+<li>Mini Challenge 🧠</li>
+<p>
+Write a query to:
+- Select all students
+- Marks greater than 60
+- Age between 18 and 22
+</p>
+
+<p><b>Answer:</b></p>
+<pre><code>
+SELECT *
+FROM Students
+WHERE Marks > 60
+AND Age BETWEEN 18 AND 22;
+</code></pre>
+
+
+
+<li>End of Module 3 – What You Learned:</li>
+<p>
+✔ AND for multiple conditions<br>
+✔ OR for alternative conditions<br>
+✔ IN for multiple values<br>
+✔ BETWEEN for ranges<br>
+✔ LIKE for text pattern matching
+
+Now you can filter data like a real Data Analyst 🔥📊
+</p>
+
+<h2>Module 4: SQL JOINS (Connecting Multiple Tables)</h2>
+
+<li>Why Do We Need JOINS? 🤔</li>
+<p>
+In real-world databases, data is stored in multiple tables.
+For example:
+- Students table → Basic student details
+- Marks table → Subject marks
+</p>
+
+<p>
+To analyze complete information, we need to combine tables.
+That’s where <b>JOINS</b> come in.
+</p>
+
+
+
+<li>Example Tables:</li>
+
+<p><b>Students Table</b></p>
+<pre><code>
+StudentID | Name
+------------------
+1         | Farhan
+2         | Aisha
+3         | Rahul
+</code></pre>
+
+<p><b>Marks Table</b></p>
+<pre><code>
+StudentID | Marks
+------------------
+1         | 85
+2         | 90
+3         | 78
+</code></pre>
+
+<p>
+Both tables share a common column → <b>StudentID</b>.
+This is called a <b>Primary Key / Foreign Key relationship</b>.
+</p>
+
+
+
+<li>INNER JOIN – Matching Records Only 🔗</li>
+<p>
+Returns only records that exist in BOTH tables.
+</p>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+SELECT columns
+FROM table1
+INNER JOIN table2
+ON table1.column = table2.column;
+</code></pre>
+
+<p><b>Example:</b></p>
+<pre><code>
+SELECT Students.Name, Marks.Marks
+FROM Students
+INNER JOIN Marks
+ON Students.StudentID = Marks.StudentID;
+</code></pre>
+
+<p>
+This combines student names with their marks.
+</p>
+
+
+
+<li>LEFT JOIN – Keep All Left Table Records ⬅</li>
+<p>
+Returns all records from the left table,  
+and matching records from the right table.
+If no match exists, NULL is returned.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+SELECT Students.Name, Marks.Marks
+FROM Students
+LEFT JOIN Marks
+ON Students.StudentID = Marks.StudentID;
+</code></pre>
+
+
+
+<li>RIGHT JOIN – Keep All Right Table Records ➡</li>
+<p>
+Returns all records from the right table,
+and matching records from the left table.
+</p>
+
+
+
+<li>FULL JOIN – Everything 🌍</li>
+<p>
+Returns all records when there is a match in either table.
+(Not supported in some databases like MySQL directly.)
+</p>
+
+
+
+<li>Real Data Science Example 📊</li>
+<p>
+Imagine:
+- Customers table
+- Orders table
+
+We want to know which customers placed orders.
+</p>
+
+<pre><code>
+SELECT Customers.Name, Orders.OrderAmount
+FROM Customers
+INNER JOIN Orders
+ON Customers.CustomerID = Orders.CustomerID;
+</code></pre>
+
+<p>
+This is used daily in companies for sales analysis.
+</p>
+
+
+
+<li>Visual Understanding 🧠</li>
+<p>
+INNER JOIN → Only matching data<br>
+LEFT JOIN → Everything from left + matches<br>
+RIGHT JOIN → Everything from right + matches<br>
+FULL JOIN → Everything from both sides
+</p>
+
+
+
+<li>Mini Challenge 🚀</li>
+<p>
+Tables:
+Employees(EmployeeID, Name, DepartmentID)<br>
+Departments(DepartmentID, DepartmentName)
+</p>
+
+<p>
+Write a query to display employee names with department names.
+</p>
+
+<p><b>Answer:</b></p>
+<pre><code>
+SELECT Employees.Name, Departments.DepartmentName
+FROM Employees
+INNER JOIN Departments
+ON Employees.DepartmentID = Departments.DepartmentID;
+</code></pre>
+
+
+
+<li>End of Module 4 – What You Learned:</li>
+<p>
+✔ Why multiple tables exist<br>
+✔ Primary & Foreign key relationship<br>
+✔ INNER JOIN<br>
+✔ LEFT JOIN<br>
+✔ RIGHT JOIN<br>
+✔ Combining business data
+
+Now you can connect data like a real Data Scientist 🔥💾
+</p>
+
+<h2>Module 5: Aggregate Functions (COUNT, SUM, AVG, GROUP BY, HAVING)</h2>
+
+<li>What Are Aggregate Functions? 📊</li>
+<p>
+Aggregate functions perform calculations on multiple rows
+and return a single result.
+</p>
+
+<p>
+They are heavily used in Data Science for:
+- Business reporting
+- Sales analysis
+- Customer insights
+- Performance metrics
+</p>
+
+
+
+<li>COUNT() – Counting Rows 🔢</li>
+<p>
+Counts the number of rows in a table.
+</p>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+SELECT COUNT(column_name)
+FROM table_name;
+</code></pre>
+
+<p><b>Example:</b></p>
+<pre><code>
+SELECT COUNT(*) 
+FROM Students;
+</code></pre>
+
+<p>
+This returns total number of students.
+</p>
+
+
+
+<li>SUM() – Total Value 💰</li>
+<p>
+Returns the total sum of a numeric column.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+SELECT SUM(Marks)
+FROM Students;
+</code></pre>
+
+
+
+<li>AVG() – Average Value 📈</li>
+<p>
+Calculates the average of a numeric column.
+</p>
+
+<pre><code>
+SELECT AVG(Marks)
+FROM Students;
+</code></pre>
+
+
+
+<li>MIN() and MAX() – Smallest & Largest 🔍</li>
+<p>
+Used to find minimum and maximum values.
+</p>
+
+<pre><code>
+SELECT MIN(Marks), MAX(Marks)
+FROM Students;
+</code></pre>
+
+
+
+<li>GROUP BY – Grouping Data 🧠</li>
+<p>
+GROUP BY groups rows that have the same values.
+It is extremely important for data analysis.
+</p>
+
+<p><b>Example Table: Sales</b></p>
+
+<pre><code>
+Product | Amount
+------------------
+A       | 100
+A       | 200
+B       | 150
+B       | 250
+</code></pre>
+
+<p><b>Example Query:</b></p>
+<pre><code>
+SELECT Product, SUM(Amount)
+FROM Sales
+GROUP BY Product;
+</code></pre>
+
+<p>
+This calculates total sales per product.
+</p>
+
+
+
+<li>HAVING – Filtering Groups 🔎</li>
+<p>
+HAVING is used to filter grouped results.
+It works after GROUP BY.
+</p>
+
+<p><b>Example:</b></p>
+<pre><code>
+SELECT Product, SUM(Amount) AS TotalSales
+FROM Sales
+GROUP BY Product
+HAVING SUM(Amount) > 300;
+</code></pre>
+
+<p>
+This shows products with total sales greater than 300.
+</p>
+
+
+
+<li>Real Data Science Example 🚀</li>
+<p>
+Find average marks by age group:
+</p>
+
+<pre><code>
+SELECT Age, AVG(Marks) AS AverageMarks
+FROM Students
+GROUP BY Age
+ORDER BY AverageMarks DESC;
+</code></pre>
+
+<p>
+This helps analyze performance trends by age.
+</p>
+
+
+
+<li>Mini Challenge 🧠</li>
+<p>
+Write a query to:
+- Count number of students per age
+- Show only ages with more than 2 students
+</p>
+
+<p><b>Answer:</b></p>
+<pre><code>
+SELECT Age, COUNT(*) AS TotalStudents
+FROM Students
+GROUP BY Age
+HAVING COUNT(*) > 2;
+</code></pre>
+
+
+
+<li>End of Module 5 – What You Learned:</li>
+<p>
+✔ COUNT() for counting rows<br>
+✔ SUM() for totals<br>
+✔ AVG() for averages<br>
+✔ MIN() & MAX()<br>
+✔ GROUP BY for grouping data<br>
+✔ HAVING for filtering groups
+
+Now you can generate business reports like a Data Analyst 🔥📊
+</p>
+
+<h2>Module 6: Subqueries (Nested Queries)</h2>
+
+<li>What is a Subquery? 🤔</li>
+<p>
+A <b>Subquery</b> is a query inside another query.
+It is also called a <b>Nested Query</b>.
+</p>
+
+<p>
+Think of it like:
+First → Get some data  
+Then → Use that result inside another query
+</p>
+
+<p>
+Subqueries are very powerful in real-world data analysis.
+</p>
+
+
+
+<li>Basic Structure 🧱</li>
+
+<pre><code>
+SELECT column_name
+FROM table_name
+WHERE column_name = (
+    SELECT column_name
+    FROM table_name
+    WHERE condition
+);
+</code></pre>
+
+
+
+<li>Example 1 – Find Students with Highest Marks 🏆</li>
+
+<p>
+We want to find the student who scored the highest marks.
+</p>
+
+<pre><code>
+SELECT Name, Marks
+FROM Students
+WHERE Marks = (
+    SELECT MAX(Marks)
+    FROM Students
+);
+</code></pre>
+
+<p>
+Step 1: Inner query finds maximum marks.<br>
+Step 2: Outer query returns student with that mark.
+</p>
+
+
+
+<li>Subquery with IN 📦</li>
+
+<p>
+Find students who scored above average.
+</p>
+
+<pre><code>
+SELECT Name, Marks
+FROM Students
+WHERE Marks > (
+    SELECT AVG(Marks)
+    FROM Students
+);
+</code></pre>
+
+<p>
+This is a very common interview question.
+</p>
+
+
+
+<li>Subquery in FROM Clause 🧠</li>
+
+<p>
+You can even use a subquery as a temporary table.
+</p>
+
+<pre><code>
+SELECT Age, AVG_Marks
+FROM (
+    SELECT Age, AVG(Marks) AS AVG_Marks
+    FROM Students
+    GROUP BY Age
+) AS AgeStats
+WHERE AVG_Marks > 75;
+</code></pre>
+
+<p>
+This:
+✔ First calculates average marks by age<br>
+✔ Then filters ages with average above 75
+</p>
+
+
+
+<li>Correlated Subquery 🔄 (Advanced)</li>
+
+<p>
+A correlated subquery runs once for every row in the outer query.
+</p>
+
+<p>
+Example: Find students who scored above the average of their age group.
+</p>
+
+<pre><code>
+SELECT Name, Age, Marks
+FROM Students s1
+WHERE Marks > (
+    SELECT AVG(Marks)
+    FROM Students s2
+    WHERE s1.Age = s2.Age
+);
+</code></pre>
+
+<p>
+This compares each student to their own age group's average.
+This is powerful analysis logic.
+</p>
+
+
+
+<li>Real Data Science Scenario 📊</li>
+
+<p>
+Imagine:
+Orders table<br>
+Find customers who spent more than the average spending.
+</p>
+
+<pre><code>
+SELECT CustomerID, SUM(Amount) AS TotalSpent
+FROM Orders
+GROUP BY CustomerID
+HAVING SUM(Amount) > (
+    SELECT AVG(TotalAmount)
+    FROM (
+        SELECT SUM(Amount) AS TotalAmount
+        FROM Orders
+        GROUP BY CustomerID
+    ) AS CustomerTotals
+);
+</code></pre>
+
+<p>
+This identifies high-value customers.
+</p>
+
+
+
+<li>Mini Challenge 🚀</li>
+
+<p>
+Write a query to find students who scored below average.
+</p>
+
+<p><b>Answer:</b></p>
+
+<pre><code>
+SELECT Name, Marks
+FROM Students
+WHERE Marks < (
+    SELECT AVG(Marks)
+    FROM Students
+);
+</code></pre>
+
+
+
+<li>End of Module 6 – What You Learned:</li>
+<p>
+✔ What is a subquery<br>
+✔ Subquery in WHERE clause<br>
+✔ Subquery with AVG, MAX<br>
+✔ Subquery in FROM clause<br>
+✔ Correlated subquery (advanced)
+
+You are now thinking like a SQL problem solver 🔥🧠
+</p>
+
+
+<h2>Module 7: Database Design & Normalization</h2>
+
+<li>Why Database Design Matters? 🧠</li>
+<p>
+Imagine storing everything in one huge table:
+Students + Courses + Marks + Teachers + Departments...
+</p>
+
+<p>
+It becomes:
+❌ Messy<br>
+❌ Hard to update<br>
+❌ Slow<br>
+❌ Full of duplicate data
+</p>
+
+<p>
+Good database design makes data:
+✔ Organized<br>
+✔ Efficient<br>
+✔ Scalable<br>
+✔ Easy to maintain
+</p>
+
+
+
+<li>What is a Primary Key? 🔑</li>
+<p>
+A <b>Primary Key</b> uniquely identifies each record in a table.
+</p>
+
+<p>
+Rules:
+- Must be unique
+- Cannot be NULL
+- Each table should have one primary key
+</p>
+
+<p><b>Example:</b></p>
+
+<pre><code>
+Students Table
+--------------
+StudentID (Primary Key)
+Name
+Age
+</code></pre>
+
+
+
+<li>What is a Foreign Key? 🔗</li>
+<p>
+A <b>Foreign Key</b> connects one table to another.
+It creates relationships between tables.
+</p>
+
+<p><b>Example:</b></p>
+
+<pre><code>
+Marks Table
+-----------
+StudentID (Foreign Key)
+Marks
+</code></pre>
+
+<p>
+StudentID in Marks refers to StudentID in Students table.
+</p>
+
+
+
+<li>Types of Relationships 📊</li>
+
+<p>
+1️⃣ One-to-One<br>
+2️⃣ One-to-Many (Most Common)<br>
+3️⃣ Many-to-Many
+</p>
+
+<p><b>Example:</b></p>
+One Student → Many Marks  
+One Customer → Many Orders
+</p>
+
+
+
+<li>What is Normalization? 📚</li>
+<p>
+Normalization is the process of organizing data
+to reduce redundancy and improve integrity.
+</p>
+
+<p>
+Goal:
+✔ Remove duplicate data<br>
+✔ Improve consistency<br>
+✔ Improve performance
+</p>
+
+
+
+<li>First Normal Form (1NF) 🥇</li>
+<p>
+Rules:
+- No repeating groups
+- Each column must contain atomic (single) values
+</p>
+
+❌ Bad Example:
+<pre><code>
+StudentID | Name | Subjects
+--------------------------------
+1         | Farhan | Math, Science
+</code></pre>
+
+✔ Good Example:
+<pre><code>
+StudentID | Name | Subject
+--------------------------------
+1         | Farhan | Math
+1         | Farhan | Science
+</code></pre>
+
+
+
+<li>Second Normal Form (2NF) 🥈</li>
+<p>
+Rules:
+- Must be in 1NF
+- No partial dependency on composite key
+</p>
+
+<p>
+Meaning: Separate data into related tables properly.
+</p>
+
+
+
+<li>Third Normal Form (3NF) 🥉</li>
+<p>
+Rules:
+- Must be in 2NF
+- No transitive dependency
+</p>
+
+<p>
+Example:
+Instead of storing DepartmentName in Students table,
+create a separate Departments table.
+</p>
+
+
+
+<li>Good Database Design Example 🚀</li>
+
+<p>
+Students Table<br>
+(StudentID, Name, Age)
+</p>
+
+<p>
+Courses Table<br>
+(CourseID, CourseName)
+</p>
+
+<p>
+Enrollments Table<br>
+(StudentID, CourseID)
+</p>
+
+<p>
+This avoids duplication and keeps structure clean.
+</p>
+
+
+
+<li>Why This Matters in Data Science 📊</li>
+<p>
+Well-designed databases:
+✔ Make SQL queries faster<br>
+✔ Make joins easier<br>
+✔ Reduce data errors<br>
+✔ Improve analytics accuracy
+</p>
+
+<p>
+Data Scientists often work with database engineers,
+so understanding design is powerful.
+</p>
+
+
+
+<li>Mini Challenge 🧠</li>
+<p>
+Why is it bad to store customer address in Orders table
+instead of a separate Customers table?
+</p>
+
+<p><b>Answer:</b></p>
+<p>
+Because it creates duplicate data,
+wastes storage,
+and makes updates difficult.
+</p>
+
+
+
+<li>End of Module 7 – What You Learned:</li>
+<p>
+✔ Primary Key<br>
+✔ Foreign Key<br>
+✔ Table Relationships<br>
+✔ Normalization (1NF, 2NF, 3NF)<br>
+✔ Clean Database Design
+
+You now understand how real databases are built 🔥💾
+</p>
+
+
+<h2>Module 8: Indexing & Query Optimization</h2>
+
+<li>Why Performance Matters? ⚡</li>
+<p>
+Imagine a table with 10 rows… everything is fast.
+Now imagine a table with 10 MILLION rows 😳
+</p>
+
+<p>
+Without optimization:
+❌ Queries become slow<br>
+❌ Dashboards lag<br>
+❌ Reports take minutes to load
+</p>
+
+<p>
+This is why indexing and optimization are critical.
+</p>
+
+
+
+<li>What is an Index? 📖</li>
+<p>
+An <b>Index</b> is like the index page of a book.
+Instead of scanning every page,
+the database jumps directly to the data.
+</p>
+
+<p>
+Without Index → Full Table Scan (slow)<br>
+With Index → Fast lookup
+</p>
+
+
+
+<li>Creating an Index 🛠</li>
+
+<p><b>Syntax:</b></p>
+<pre><code>
+CREATE INDEX index_name
+ON table_name(column_name);
+</code></pre>
+
+<p><b>Example:</b></p>
+<pre><code>
+CREATE INDEX idx_student_name
+ON Students(Name);
+</code></pre>
+
+<p>
+Now searching by Name becomes much faster.
+</p>
+
+
+
+<li>When Should You Use an Index? 🤔</li>
+<p>
+✔ Frequently searched columns<br>
+✔ Columns used in WHERE clause<br>
+✔ Columns used in JOIN<br>
+✔ Columns used in ORDER BY
+</p>
+
+
+
+<li>When NOT to Use Too Many Indexes ❌</li>
+<p>
+Indexes improve SELECT speed,
+but slow down INSERT and UPDATE.
+</p>
+
+<p>
+Why?
+Because every time data changes,
+the index must also update.
+</p>
+
+
+
+<li>Query Optimization Tips 🚀</li>
+
+<p><b>1️⃣ Select Only Needed Columns</b></p>
+❌ Bad:
+<pre><code>
+SELECT * FROM Students;
+</code></pre>
+
+✔ Good:
+<pre><code>
+SELECT Name, Marks FROM Students;
+</code></pre>
+
+
+<p><b>2️⃣ Use WHERE Properly</b></p>
+Avoid unnecessary full-table scans.
+
+
+<p><b>3️⃣ Use LIMIT When Testing</b></p>
+<pre><code>
+SELECT * FROM Students LIMIT 10;
+</code></pre>
+
+
+<p><b>4️⃣ Avoid Unnecessary Subqueries</b></p>
+Sometimes JOIN is faster than subqueries.
+
+
+<p><b>5️⃣ Use Proper Data Types</b></p>
+INT is faster than VARCHAR for numeric values.
+</p>
+
+
+
+<li>Understanding EXPLAIN 🔍</li>
+<p>
+The <b>EXPLAIN</b> keyword shows how SQL executes a query.
+It helps detect performance issues.
+</p>
+
+<pre><code>
+EXPLAIN SELECT * FROM Students WHERE Name = 'Farhan';
+</code></pre>
+
+<p>
+It tells you:
+- If index is used
+- If full table scan happens
+</p>
+
+
+
+<li>Real-World Scenario 📊</li>
+<p>
+Imagine:
+Orders table with 5 million rows.
+We often search by CustomerID.
+</p>
+
+<p>
+Creating an index on CustomerID
+can reduce query time from seconds to milliseconds.
+</p>
+
+
+
+<li>Mini Challenge 🧠</li>
+<p>
+You frequently filter Orders by OrderDate.
+What should you do?
+</p>
+
+<p><b>Answer:</b></p>
+<p>
+Create an index on OrderDate.
+</p>
+
+
+
+<li>End of Module 8 – What You Learned:</li>
+<p>
+✔ What is an Index<br>
+✔ How to create an Index<br>
+✔ When to use Index<br>
+✔ Query optimization strategies<br>
+✔ EXPLAIN keyword
+
+Now you understand how to make SQL systems efficient ⚡🔥
+</p>
+
+
+<h2>Module 9: SQL for Data Science Projects</h2>
+
+<li>Why SQL is Important for Data Science? 📊</li>
+<p>
+Before building machine learning models,
+data must be:
+✔ Extracted<br>
+✔ Cleaned<br>
+✔ Aggregated<br>
+✔ Structured
+</p>
+
+<p>
+SQL is used to prepare data for analysis.
+In real companies, data scientists spend
+more time querying data than building models.
+</p>
+
+
+
+<li>Project 1: Sales Analysis 🛒</li>
+
+<p><b>Problem:</b></p>
+<p>
+Analyze total revenue, top products,
+and monthly sales trends.
+</p>
+
+<p><b>Sample Queries:</b></p>
+
+<pre><code>
+-- Total Revenue
+SELECT SUM(Price * Quantity) AS Total_Revenue
+FROM Sales;
+</code></pre>
+
+<pre><code>
+-- Top 5 Products
+SELECT ProductName, SUM(Quantity) AS Total_Sold
+FROM Sales
+GROUP BY ProductName
+ORDER BY Total_Sold DESC
+LIMIT 5;
+</code></pre>
+
+<pre><code>
+-- Monthly Sales Trend
+SELECT MONTH(OrderDate) AS Month,
+       SUM(Price * Quantity) AS Revenue
+FROM Sales
+GROUP BY MONTH(OrderDate);
+</code></pre>
+
+
+
+<li>Project 2: Customer Segmentation 👥</li>
+
+<p><b>Problem:</b></p>
+<p>
+Find high-value customers based on total spending.
+</p>
+
+<pre><code>
+SELECT CustomerID,
+       SUM(Price * Quantity) AS Total_Spent
+FROM Sales
+GROUP BY CustomerID
+HAVING SUM(Price * Quantity) > 10000;
+</code></pre>
+
+<p>
+This helps marketing teams target premium customers.
+</p>
+
+
+
+<li>Project 3: Data Cleaning 🧹</li>
+
+<p><b>Remove NULL Values:</b></p>
+
+<pre><code>
+SELECT *
+FROM Customers
+WHERE Email IS NOT NULL;
+</code></pre>
+
+<p><b>Remove Duplicates:</b></p>
+
+<pre><code>
+SELECT DISTINCT CustomerID, Name
+FROM Customers;
+</code></pre>
+
+
+
+<li>Project 4: A/B Testing Analysis 🧪</li>
+
+<p>
+Compare conversion rates between two groups.
+</p>
+
+<pre><code>
+SELECT GroupName,
+       COUNT(*) AS Users,
+       SUM(Converted) AS Conversions,
+       (SUM(Converted) * 100.0 / COUNT(*)) AS Conversion_Rate
+FROM Experiments
+GROUP BY GroupName;
+</code></pre>
+
+
+
+<li>Project 5: Joining Multiple Tables 🔗</li>
+
+<p>
+Real projects require joining data from different sources.
+</p>
+
+<pre><code>
+SELECT c.Name,
+       o.OrderID,
+       o.Amount
+FROM Customers c
+JOIN Orders o
+ON c.CustomerID = o.CustomerID;
+</code></pre>
+
+
+
+<li>Preparing Data for Machine Learning 🤖</li>
+
+<p>
+Example: Creating a feature dataset.
+</p>
+
+<pre><code>
+SELECT CustomerID,
+       COUNT(OrderID) AS Total_Orders,
+       SUM(Amount) AS Total_Spent,
+       AVG(Amount) AS Avg_Order_Value
+FROM Orders
+GROUP BY CustomerID;
+</code></pre>
+
+<p>
+This dataset can be exported to Python
+for building predictive models.
+</p>
+
+
+
+<li>Exporting Data for Analysis 📤</li>
+
+<p>
+SQL results are often exported to:
+✔ CSV files<br>
+✔ Excel<br>
+✔ Python (Pandas)<br>
+✔ Power BI / Tableau
+</p>
+
+
+
+<li>Real Industry Workflow 🏢</li>
+
+<p>
+1️⃣ Business asks a question<br>
+2️⃣ Data Scientist writes SQL query<br>
+3️⃣ Clean & prepare dataset<br>
+4️⃣ Analyze or model in Python/R<br>
+5️⃣ Visualize in BI tools
+</p>
+
+
+
+<li>Mini Challenge 🧠</li>
+
+<p>
+You want to find customers who have not placed
+any orders. How would you write the query?
+</p>
+
+<p><b>Answer:</b></p>
+
+<pre><code>
+SELECT c.CustomerID, c.Name
+FROM Customers c
+LEFT JOIN Orders o
+ON c.CustomerID = o.CustomerID
+WHERE o.OrderID IS NULL;
+</code></pre>
+
+
+
+<li>End of Module 9 – What You Learned:</li>
+<p>
+✔ SQL for real business problems<br>
+✔ Sales analysis<br>
+✔ Customer segmentation<br>
+✔ Data cleaning<br>
+✔ A/B testing analysis<br>
+✔ Preparing ML datasets
+
+Now you can use SQL like a real Data Scientist 📊🔥
+</p>
+
+<h2>Module 10: SQL Interview Questions & Practice Problems</h2>
+
+<li>Why Interview Preparation Matters? 💼</li>
+<p>
+Most companies test SQL in:
+✔ Data Analyst interviews<br>
+✔ Data Scientist interviews<br>
+✔ Backend Developer interviews<br>
+✔ Business Intelligence roles
+</p>
+
+<p>
+This module prepares you for real interview questions.
+</p>
+
+
+
+<li>Question 1: Find the Second Highest Salary 💰</li>
+
+<p><b>Problem:</b></p>
+<p>
+Write a query to find the second highest salary from Employees table.
+</p>
+
+<p><b>Solution:</b></p>
+
+<pre><code>
+SELECT MAX(Salary) AS Second_Highest
+FROM Employees
+WHERE Salary < (SELECT MAX(Salary) FROM Employees);
+</code></pre>
+
+
+
+<li>Question 2: Find Duplicate Records 🔁</li>
+
+<p><b>Problem:</b></p>
+<p>
+Find duplicate emails in Customers table.
+</p>
+
+<p><b>Solution:</b></p>
+
+<pre><code>
+SELECT Email, COUNT(*) AS Count
+FROM Customers
+GROUP BY Email
+HAVING COUNT(*) > 1;
+</code></pre>
+
+
+
+<li>Question 3: Get Employees with Above Average Salary 📊</li>
+
+<pre><code>
+SELECT Name, Salary
+FROM Employees
+WHERE Salary > (SELECT AVG(Salary) FROM Employees);
+</code></pre>
+
+
+
+<li>Question 4: Rank Students by Marks 🏆</li>
+
+<pre><code>
+SELECT Name,
+       Marks,
+       RANK() OVER (ORDER BY Marks DESC) AS Rank_Position
+FROM Students;
+</code></pre>
+
+
+
+<li>Question 5: Find Customers Who Placed More Than 5 Orders 🛒</li>
+
+<pre><code>
+SELECT CustomerID, COUNT(OrderID) AS Total_Orders
+FROM Orders
+GROUP BY CustomerID
+HAVING COUNT(OrderID) > 5;
+</code></pre>
+
+
+
+<li>Question 6: Difference Between INNER JOIN and LEFT JOIN 🔗</li>
+
+<p>
+✔ INNER JOIN → Returns matching rows only<br>
+✔ LEFT JOIN → Returns all rows from left table + matches from right table
+</p>
+
+
+
+<li>Question 7: Delete Duplicate Records Safely 🧹</li>
+
+<pre><code>
+DELETE FROM Employees
+WHERE EmployeeID NOT IN (
+    SELECT MIN(EmployeeID)
+    FROM Employees
+    GROUP BY Email
+);
+</code></pre>
+
+
+
+<li>Question 8: What is Indexing? 📖</li>
+
+<p>
+An index improves query speed by allowing
+the database to locate data faster.
+</p>
+
+
+
+<li>Question 9: What is Normalization? 📚</li>
+
+<p>
+Normalization organizes data to reduce redundancy
+and improve integrity (1NF, 2NF, 3NF).
+</p>
+
+
+
+<li>Question 10: Explain ACID Properties 🔐</li>
+
+<p>
+A – Atomicity → All or nothing<br>
+C – Consistency → Valid state maintained<br>
+I – Isolation → Transactions don’t interfere<br>
+D – Durability → Data persists after commit
+</p>
+
+
+
+<li>Bonus Coding Challenge 🚀</li>
+
+<p>
+Find the top 3 highest salaries.
+</p>
+
+<pre><code>
+SELECT Salary
+FROM Employees
+ORDER BY Salary DESC
+LIMIT 3;
+</code></pre>
+
+
+
+<li>Interview Tips 🎯</li>
+
+<p>
+✔ Practice writing queries without looking<br>
+✔ Understand GROUP BY deeply<br>
+✔ Be comfortable with JOIN<br>
+✔ Learn window functions<br>
+✔ Practice on real datasets
+</p>
+
+
+
+<li>End of Module 10 – What You Learned:</li>
+<p>
+✔ Classic interview questions<br>
+✔ Subqueries<br>
+✔ Aggregations<br>
+✔ Window functions<br>
+✔ ACID concepts<br>
+✔ Real interview preparation
+
+You are now interview-ready for SQL roles 💼🔥
+</p>
+
+<div id="course-completion-message">
+  <h2>Congratulations on Completing the SQL Mastery Program</h2>
+
+  <p>
+    You have successfully completed the entire SQL course, from foundational concepts to advanced performance optimization and interview preparation.
+  </p>
+
+  <p>
+    This achievement reflects your dedication, consistency, and commitment to learning. You now understand how databases are designed, how queries are optimized, and how SQL is applied in real-world business and data science scenarios.
+  </p>
+
+  <p>
+    Remember, mastering SQL is not just about writing queries. It is about thinking analytically, solving real problems, and building systems that scale.
+  </p>
+
+  <p>
+    Keep practicing. Keep building. Keep improving.
+  </p>
+
+  <p>
+    Your journey as a skilled data professional has just begun.
+  </p>
+
+  <h3>Well done. Be proud of your progress.</h3>
+</div>
+
+
+
+</body>
+</html>
+
+
+
+<head>
+    <style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(59,130,246,0.2),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(168,85,247,0.2),
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #0b1b3a,
+      #1e1b4b
+    );
+  color: white;
+}
+</style>
+</head>

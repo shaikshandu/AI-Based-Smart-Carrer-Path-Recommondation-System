@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deep Learning Fundamentals</title>
+              <style>
+  pre {
+  background-color: #0f172a;
+  color: #22c55e;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+code {
+  font-family: "Courier New", monospace;
+}
+</style>
+</head>
+<body>
+
+<h1>Deep Learning</h1>
+
+
+
+<h2>Module 1: Introduction to Deep Learning</h2>
+
+<li>What is Deep Learning?</li>
+<p>
+Deep Learning is a subset of Machine Learning 
+that uses artificial neural networks with multiple layers 
+to learn complex patterns from data.
+</p>
+
+<li>Why Deep Learning?</li>
+<p>
+Traditional ML struggles with:
+- Image recognition
+- Speech processing
+- Natural language understanding
+</p>
+
+<p>
+Deep Learning excels at handling large-scale 
+and high-dimensional data.
+</p>
+
+
+
+<h2>Module 2: Neural Networks</h2>
+
+<li>Basic Structure</li>
+<p>
+A neural network consists of:
+- Input Layer
+- Hidden Layers
+- Output Layer
+</p>
+
+<li>Neuron Computation</li>
+
+<pre><code>
+z = Σ (wi * xi) + b
+</code></pre>
+
+<pre><code>
+Output:
+
+a = f(z)
+</code></pre>
+
+<p>
+wi = weights<br>
+xi = inputs<br>
+b = bias<br>
+f = activation function
+</p>
+
+<li>Common Activation Functions</li>
+
+<pre><code>
+ReLU:
+
+f(x) = max(0, x)
+</code></pre>
+
+<pre><code>
+Sigmoid:
+
+σ(x) = 1 / (1 + e^(-x))
+</code></pre>
+
+<pre><code>
+Tanh:
+
+tanh(x) = (e^x - e^(-x)) / (e^x + e^(-x))
+</code></pre>
+
+
+
+<h2>Module 3: Forward & Backpropagation</h2>
+
+<li>Forward Propagation</li>
+<p>
+Data moves from input layer to output layer 
+to produce predictions.
+</p>
+
+<li>Loss Function</li>
+
+<pre><code>
+Mean Squared Error:
+
+L = (1/n) Σ (yi - ŷi)²
+</code></pre>
+
+<li>Binary Cross Entropy</li>
+
+<pre><code>
+L = -[y log(ŷ) + (1 - y) log(1 - ŷ)]
+</code></pre>
+
+<li>Backpropagation</li>
+<p>
+Backpropagation computes gradients 
+to update weights using gradient descent.
+</p>
+
+<pre><code>
+Weight Update Rule:
+
+w = w - α * ∂L/∂w
+</code></pre>
+
+
+
+<h2>Module 4: Optimization & Regularization</h2>
+
+<li>Gradient Descent</li>
+
+<pre><code>
+θ = θ - α ∇J(θ)
+</code></pre>
+
+<li>Learning Rate</li>
+<p>
+Controls how fast the model learns.
+Too high → unstable<br>
+Too low → slow learning
+</p>
+
+<li>Regularization</li>
+
+<pre><code>
+L2 Regularization:
+
+J = Loss + λ Σ w²
+</code></pre>
+
+<li>Dropout</li>
+<p>
+Randomly deactivates neurons during training 
+to prevent overfitting.
+</p>
+
+
+
+<h2>Module 5: Specialized Neural Networks</h2>
+
+<li>Convolutional Neural Networks (CNN)</li>
+<p>
+Used for image processing.
+</p>
+
+<pre><code>
+Convolution Operation:
+
+S(i, j) = Σ Σ I(m, n) * K(i - m, j - n)
+</code></pre>
+
+<li>Recurrent Neural Networks (RNN)</li>
+<p>
+Used for sequential data like text and speech.
+</p>
+
+<pre><code>
+Hidden State Update:
+
+ht = f(Wxh xt + Whh ht-1 + b)
+</code></pre>
+
+<li>Long Short-Term Memory (LSTM)</li>
+<p>
+Improves RNN by handling long-term dependencies.
+</p>
+
+
+
+<h2>Final Insight</h2>
+
+<p>
+Deep Learning models are powerful 
+because they automatically learn hierarchical features.
+</p>
+
+<p>
+At the core, they are:
+- Matrix multiplications
+- Activation functions
+- Optimization algorithms
+</p>
+
+<p>
+Strong math and machine learning foundations 
+make deep learning intuitive and manageable.
+</p>
+
+
+
+</body>
+</html>
+
+<head>
+    <style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(59,130,246,0.2),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(168,85,247,0.2),
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #0b1b3a,
+      #1e1b4b
+    );
+  color: white;
+}
+</style>
+</head>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Machine Learning Fundamentals</title>
+              <style>
+  pre {
+  background-color: #0f172a;
+  color: #22c55e;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+code {
+  font-family: "Courier New", monospace;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Machine Learning for Data Science</h1>
+
+
+
+<h2>Module 1: Introduction to Machine Learning</h2>
+
+<li>What is Machine Learning?</li>
+<p>
+Machine Learning is the process of teaching systems 
+to learn patterns from data and make predictions 
+without being explicitly programmed.
+</p>
+
+<li>Types of Machine Learning</li>
+
+<p>
+Supervised Learning – Uses labeled data<br>
+Unsupervised Learning – Uses unlabeled data<br>
+Reinforcement Learning – Learns through rewards
+</p>
+
+<li>General ML Workflow</li>
+
+<p>
+1. Collect Data<br>
+2. Perform EDA<br>
+3. Split Data (Train/Test)<br>
+4. Train Model<br>
+5. Evaluate Model<br>
+6. Optimize Model
+</p>
+
+
+
+<h2>Module 2: Supervised Learning</h2>
+
+<li>Linear Regression</li>
+<p>
+Used to predict continuous values.
+</p>
+
+<pre><code>
+Simple Linear Regression:
+
+y = β0 + β1x
+</code></pre>
+
+<li>Cost Function (Mean Squared Error)</li>
+
+<pre><code>
+MSE = (1/n) Σ (yi - ŷi)²
+</code></pre>
+
+<li>Gradient Descent Update Rule</li>
+
+<pre><code>
+θ = θ - α * ∂J/∂θ
+</code></pre>
+
+<p>
+α = learning rate<br>
+J = cost function
+</p>
+
+<li>Logistic Regression</li>
+<p>
+Used for binary classification.
+</p>
+
+<pre><code>
+Sigmoid Function:
+
+σ(z) = 1 / (1 + e^(-z))
+</code></pre>
+
+<pre><code>
+Prediction:
+
+ŷ = σ(β0 + β1x)
+</code></pre>
+
+
+
+<h2>Module 3: Model Evaluation</h2>
+
+<li>Train-Test Split</li>
+<p>
+Data is divided into training and testing sets 
+to evaluate performance.
+</p>
+
+<li>Accuracy</li>
+
+<pre><code>
+Accuracy = (Correct Predictions) / (Total Predictions)
+</code></pre>
+
+<li>Precision</li>
+
+<pre><code>
+Precision = TP / (TP + FP)
+</code></pre>
+
+<li>Recall</li>
+
+<pre><code>
+Recall = TP / (TP + FN)
+</code></pre>
+
+<li>F1 Score</li>
+
+<pre><code>
+F1 = 2 * (Precision * Recall) / (Precision + Recall)
+</code></pre>
+
+
+
+<h2>Module 4: Unsupervised Learning</h2>
+
+<li>K-Means Clustering</li>
+<p>
+Groups similar data points together.
+</p>
+
+<li>Distance Formula (Euclidean)</li>
+
+<pre><code>
+Distance = √Σ (xi - yi)²
+</code></pre>
+
+<li>Centroid Update</li>
+
+<pre><code>
+New Centroid = (Σ points in cluster) / (Number of points)
+</code></pre>
+
+<li>Elbow Method</li>
+<p>
+Used to determine optimal number of clusters.
+</p>
+
+
+
+<h2>Module 5: Advanced Concepts</h2>
+
+<li>Bias-Variance Tradeoff</li>
+
+<p>
+Bias – Error due to overly simple model<br>
+Variance – Error due to overly complex model
+</p>
+
+<li>Regularization</li>
+
+<pre><code>
+L2 Regularization (Ridge):
+
+J = MSE + λ Σ θ²
+</code></pre>
+
+<pre><code>
+L1 Regularization (Lasso):
+
+J = MSE + λ Σ |θ|
+</code></pre>
+
+<li>Overfitting vs Underfitting</li>
+<p>
+Overfitting – Model memorizes data<br>
+Underfitting – Model fails to capture pattern
+</p>
+
+
+
+<h2>Final Insight</h2>
+
+<p>
+Machine Learning combines:
+- Mathematics
+- Statistics
+- Programming
+- Domain understanding
+</p>
+
+<p>
+Models are not magic.
+They are mathematical functions optimized to reduce error.
+</p>
+
+<p>
+Strong foundations in math and EDA 
+lead to strong machine learning models.
+</p>
+
+
+
+</body>
+</html>
+
+
+
+<head>
+    <style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(59,130,246,0.2),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(168,85,247,0.2),
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #0b1b3a,
+      #1e1b4b
+    );
+  color: white;
+}
+</style>
+</head>

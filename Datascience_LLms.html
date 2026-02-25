@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generative AI & Large Language Models</title>
+              <style>
+  pre {
+  background-color: #0f172a;
+  color: #22c55e;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+code {
+  font-family: "Courier New", monospace;
+}
+</style>
+</head>
+<body>
+
+<h1>Generative AI & Large Language Models</h1>
+
+
+
+<h2>Module 1: Introduction to Generative AI</h2>
+
+<li>What is Generative AI?</li>
+<p>
+Generative AI refers to models that can create new content 
+such as text, images, audio, and code.
+</p>
+
+<p>
+Unlike traditional ML models that predict labels,
+Generative AI models generate new data distributions.
+</p>
+
+<li>Large Language Models (LLMs)</li>
+<p>
+LLMs are deep neural networks trained on massive text corpora 
+to understand and generate human-like language.
+</p>
+
+<p>
+They are built using Transformer architecture.
+</p>
+
+
+
+<h2>Module 2: Transformer Architecture</h2>
+
+<li>Core Idea: Attention Mechanism</li>
+<p>
+Attention allows the model to focus on important words 
+in a sequence when generating output.
+</p>
+
+<li>Self-Attention Formula</li>
+
+<pre><code>
+Attention(Q, K, V) = softmax( (QKᵀ) / √dk ) V
+</code></pre>
+
+<p>
+Q = Query matrix<br>
+K = Key matrix<br>
+V = Value matrix<br>
+dk = dimension of key vectors
+</p>
+
+<li>Scaled Dot-Product Attention</li>
+
+<pre><code>
+Score = (Q · Kᵀ) / √dk
+Weights = softmax(Score)
+Output = Weights · V
+</code></pre>
+
+<li>Multi-Head Attention</li>
+
+<pre><code>
+MultiHead(Q, K, V) = Concat(head1, ..., headh) Wᵒ
+</code></pre>
+
+<li>Positional Encoding</li>
+
+<pre><code>
+PE(pos, 2i)   = sin(pos / 10000^(2i/d))
+PE(pos, 2i+1) = cos(pos / 10000^(2i/d))
+</code></pre>
+
+<p>
+Transformers do not process data sequentially,
+so positional encoding adds order information.
+</p>
+
+
+
+<h2>Module 3: Prompt Engineering</h2>
+
+<li>What is Prompt Engineering?</li>
+<p>
+Prompt engineering is the practice of designing 
+effective inputs to guide LLM outputs.
+</p>
+
+<li>Zero-Shot Prompting</li>
+<p>
+Provide instruction without examples.
+</p>
+
+<li>Few-Shot Prompting</li>
+<p>
+Provide examples inside the prompt.
+</p>
+
+<li>Chain-of-Thought Prompting</li>
+<p>
+Encourage step-by-step reasoning.
+</p>
+
+<li>Temperature in Generation</li>
+
+<pre><code>
+Adjusted Probability:
+
+P'(x) = exp(log(P(x)) / T) / Σ exp(log(P(x)) / T)
+</code></pre>
+
+<p>
+T → Temperature parameter<br>
+Low T → Deterministic output<br>
+High T → Creative output
+</p>
+
+
+
+<h2>Module 4: Retrieval Augmented Generation (RAG)</h2>
+
+<li>What is RAG?</li>
+<p>
+RAG combines retrieval systems with LLMs 
+to generate fact-based responses.
+</p>
+
+<li>RAG Workflow</li>
+<p>
+1. User Query<br>
+2. Retrieve relevant documents<br>
+3. Inject documents into prompt<br>
+4. LLM generates answer
+</p>
+
+<li>Similarity Search (Cosine Similarity)</li>
+
+<pre><code>
+cos(θ) = (A · B) / (||A|| ||B||)
+</code></pre>
+
+<p>
+Used to retrieve semantically similar documents.
+</p>
+
+
+
+<h2>Module 5: Vector Databases</h2>
+
+<li>Why Vector Databases?</li>
+<p>
+LLMs use embeddings to represent text numerically.
+Vector databases store and search these embeddings efficiently.
+</p>
+
+<li>Embedding Representation</li>
+
+<pre><code>
+Text → Embedding Vector:
+
+E = [e1, e2, e3, ..., en]
+</code></pre>
+
+<li>Common Vector Databases</li>
+<p>
+Pinecone – Managed vector search service<br>
+Chroma – Open-source embedding database<br>
+FAISS – Efficient similarity search library
+</p>
+
+
+
+<h2>Module 6: LangChain & LlamaIndex</h2>
+
+<li>LangChain</li>
+<p>
+Framework for building LLM-powered applications.
+Supports:
+- Prompt templates
+- Chains
+- Agents
+- Memory
+</p>
+
+<li>LlamaIndex</li>
+<p>
+Tool for connecting LLMs with custom data sources.
+Optimized for document indexing and retrieval.
+</p>
+
+<li>LLM Application Flow</li>
+<p>
+User Input → Retrieval → Prompt Template → LLM → Response
+</p>
+
+
+
+<h2>Final Insight</h2>
+
+<p>
+Generative AI is built on:
+- Linear algebra
+- Probability
+- Optimization
+- Massive datasets
+</p>
+
+<p>
+Transformers revolutionized NLP by replacing recurrence 
+with attention mechanisms.
+</p>
+
+<p>
+Understanding embeddings, vector search, and RAG 
+is essential for building modern AI applications.
+</p>
+
+
+
+</body>
+</html>
+
+<head>
+    <style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(59,130,246,0.2),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(168,85,247,0.2),
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #0b1b3a,
+      #1e1b4b
+    );
+  color: white;
+}
+</style>
+</head>
