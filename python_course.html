@@ -11,6 +11,49 @@
   overflow-x: auto;
   font-size: 14px;
 }
+ body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0f172a;
+    color: white;
+}
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #111827;
+    padding: 20px;
+    position: fixed;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #22c55e;
+    font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+    color: white;
+}
+
+.content {
+    margin-left: 270px;
+    padding: 40px;
+    width: 100%;
+}
+
 
 code {
   font-family: "Courier New", monospace;
@@ -21,10 +64,44 @@ code {
 
 <body>
 
+
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Modules</h2>
+        <ul>
+            <li><a href="#module1">Module 1</a></li>
+            <li><a href="#module2">Module 2</a></li>
+            <li><a href="#module3">Module 3</a></li>
+            <li><a href="#module4">Module 4</a></li>
+            <li><a href="#module5">Module 5</a></li>
+            <li><a href="#module6">Module 6</a></li>
+            <li><a href="#module7">Module 7</a></li>
+            <li><a href="#module8">Module 8</a></li>
+            <li><a href="#module9">Module 9</a></li>
+            <li><a href="#module10">Module 10</a></li>
+            <li><a href="#module11">Module 11</a></li>
+            <li><a href="#module12">Module 12</a></li>
+            <li><a href="#module13">Module 13</a></li>
+            <li><a href="#module14">Module 14</a></li>
+        </ul>
+    </div>
+
+
+
+ <div class="content">
+
+
+
+
+
+
   <h1>Python for Data Science</h1>
   <p>Complete beginner to advanced guide.</p>
 
-  <h2>Module 1: Intoduction</h2>
+  <h2 id="module1">Module 1: Intoduction</h2>
 
 <pre><code>
 # Introduction
@@ -53,7 +130,7 @@ print(type({'name': 'Asabeneh'}))  # Dictionary
 print(type({9.8, 3.14, 2.7}))    # Tuple
 </code></pre>
 
-  <h2>Module 2: Built In Functions</h2>
+  <h2 id="module2">Module 2: Built In Functions</h2>
 <p>
 In Python we have lots of built-in functions. <br> Built-in functions are globally available for your use that mean you can make use of the built-in functions without importing or configuring. 
 <br>Some of the most commonly used Python built-in functions are the following: <br> print(), len(), type(), int(), float(), str(), input(), list(), dict(), min(), max(), sum(), sorted(), open(), file(), help(), and dir(). 
@@ -72,7 +149,7 @@ In Python we have lots of built-in functions. <br> Built-in functions are global
 }
 </style>
 
-<h2>Module 3: Operators</h2>
+<h2 id="module3"> Module 3: Operators</h2>
 
 <p>
 Python language supports several types of operators. In this section, we will focus on a few of them.
@@ -108,7 +185,7 @@ The table below shows the different types of Python assignment operators.
      class="operator-img">
 
 
-<h2>Module 4: Control Flow & Conditional Statements</h2>
+<h2 id="module4"> Module 4: Control Flow & Conditional Statements</h2>
 
 <li>If Statement:</li>
 <p>
@@ -210,7 +287,7 @@ for i in range(5):
 
 
 
-<h2>Module 5: Data Structures</h2>
+<h2 id="module5"> Module 5: Data Structures</h2>
 <li>Lists:</li>
 <p>
 A List is a collection data type in Python which is ordered and changeable (mutable).
@@ -310,7 +387,7 @@ print(data[0]["name"])
 </code></pre>
 
 
-<h2>Module 6: Functions & Lambda Expressions</h2>
+<h2 id="module6"> Module 6: Functions & Lambda Expressions</h2>
 
 <li>Functions:</li>
 <p>
@@ -424,7 +501,7 @@ Functions help in:
 - Avoiding repetition in large projects
 </p>
 
-<h2>Module 7: Object-Oriented Programming (OOP)</h2>
+<h2 id="module7"> Module 7: Object-Oriented Programming (OOP)</h2>
 
 <li>Introduction to OOP:</li>
 <p>
@@ -546,7 +623,7 @@ OOP helps in:
 - Creating data processing pipelines
 </p>
 
-<h2>Module 8: NumPy for Data Science</h2>
+<h2 id="module8"> Module 8: NumPy for Data Science</h2>
 
 <li>Introduction to NumPy:</li>
 <p>
@@ -646,7 +723,7 @@ It helps in:
 - Preparing data for machine learning
 </p>
 
-<h2>Module 9: Pandas for Data Analysis</h2>
+<h2 id="module9"> Module 9: Pandas for Data Analysis</h2>
 
 <li>Introduction to Pandas:</li>
 <p>
@@ -759,7 +836,7 @@ Pandas is used for:
 Almost every Data Science project starts with Pandas.
 </p>
 
-<h2>Module 10: Data Visualization (Matplotlib & Seaborn)</h2>
+<h2 id="module10"> Module 10: Data Visualization (Matplotlib & Seaborn)</h2>
 
 <li>Introduction to Data Visualization:</li>
 <p>
@@ -860,7 +937,7 @@ Visualization helps in:
 It plays a key role in Exploratory Data Analysis (EDA).
 </p>
 
-<h2>Module 11: Statistics for Data Science</h2>
+<h2 id="module11"> Module 11: Statistics for Data Science</h2>
 
 <li>Introduction to Statistics:</li>
 <p>
@@ -976,7 +1053,7 @@ Statistics helps in:
 Without statistics, Data Science is incomplete.
 </p>
 
-<h2>Module 12: Machine Learning Basics</h2>
+<h2 id="module12"> Module 12: Machine Learning Basics</h2>
 
 <li>Introduction to Machine Learning:</li>
 <p>
@@ -1079,7 +1156,7 @@ Machine Learning is used in:
 It is one of the most in-demand skills in Data Science.
 </p>
 
-<h2>Module 13: Practice Exercises & Mini Projects</h2>
+<h2 id="module13"> Module 13: Practice Exercises & Mini Projects</h2>
 
 <li>Beginner Level Exercises:</li>
 <p>
@@ -1190,7 +1267,7 @@ Build a complete Data Science project:
 </p>
 
 
-<h2>Module 14: Quiz & Assessment</h2>
+<h2 id="module14"> Module 14: Quiz & Assessment</h2>
 
 <!-- MODULE 1 -->
 <h3>Module 1: Introduction to Python</h3>
@@ -1418,6 +1495,8 @@ c) Regression <br>
 d) Sorting <br>
 <b>Answer:</b> c <br><br>
 
+
+</div>
 </body>
 </html>
 

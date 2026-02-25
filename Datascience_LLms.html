@@ -12,6 +12,50 @@
   font-size: 14px;
 }
 
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0f172a;
+    color: white;
+}
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #111827;
+    padding: 20px;
+    position: fixed;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #22c55e;
+    font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+    color: white;
+}
+
+.content {
+    margin-left: 270px;
+    padding: 40px;
+    width: 100%;
+}
+
+
 code {
   font-family: "Courier New", monospace;
 }
@@ -19,11 +63,33 @@ code {
 </head>
 <body>
 
+
+  <div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Modules</h2>
+        <ul>
+            <li><a href="#module1">Module 1</a></li>
+            <li><a href="#module2">Module 2</a></li>
+            <li><a href="#module3">Module 3</a></li>
+            <li><a href="#module4">Module 4</a></li>
+            <li><a href="#module5">Module 5</a></li>
+            <li><a href="#module6">Module 6</a></li>
+
+
+        </ul>
+    </div>
+
+
+
+ <div class="content">
+
 <h1>Generative AI & Large Language Models</h1>
 
 
 
-<h2>Module 1: Introduction to Generative AI</h2>
+<h2 id="module1">Module 1: Introduction to Generative AI</h2>
 
 <li>What is Generative AI?</li>
 <p>
@@ -48,7 +114,7 @@ They are built using Transformer architecture.
 
 
 
-<h2>Module 2: Transformer Architecture</h2>
+<h2 id="module2">Module 2: Transformer Architecture</h2>
 
 <li>Core Idea: Attention Mechanism</li>
 <p>
@@ -97,7 +163,7 @@ so positional encoding adds order information.
 
 
 
-<h2>Module 3: Prompt Engineering</h2>
+<h2 id="module3">Module 3: Prompt Engineering</h2>
 
 <li>What is Prompt Engineering?</li>
 <p>
@@ -136,7 +202,7 @@ High T → Creative output
 
 
 
-<h2>Module 4: Retrieval Augmented Generation (RAG)</h2>
+<h2 id="module4">Module 4: Retrieval Augmented Generation (RAG)</h2>
 
 <li>What is RAG?</li>
 <p>
@@ -164,7 +230,7 @@ Used to retrieve semantically similar documents.
 
 
 
-<h2>Module 5: Vector Databases</h2>
+<h2 id="module5">Module 5: Vector Databases</h2>
 
 <li>Why Vector Databases?</li>
 <p>
@@ -189,7 +255,7 @@ FAISS – Efficient similarity search library
 
 
 
-<h2>Module 6: LangChain & LlamaIndex</h2>
+<h2 id="module6">Module 6: LangChain & LlamaIndex</h2>
 
 <li>LangChain</li>
 <p>

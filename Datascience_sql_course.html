@@ -14,6 +14,50 @@
   font-size: 14px;
 }
 
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0f172a;
+    color: white;
+}
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #111827;
+    padding: 20px;
+    position: fixed;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #22c55e;
+    font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+    color: white;
+}
+
+.content {
+    margin-left: 270px;
+    padding: 40px;
+    width: 100%;
+}
+
+
 code {
   font-family: "Courier New", monospace;
 }
@@ -21,8 +65,33 @@ code {
 </head>
 <body>
     
+<div class="container">
 
-    <h2>Module 1: Introduction to SQL & Databases</h2>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Modules</h2>
+        <ul>
+            <li><a href="#module1">Module 1</a></li>
+            <li><a href="#module2">Module 2</a></li>
+            <li><a href="#module3">Module 3</a></li>
+            <li><a href="#module4">Module 4</a></li>
+            <li><a href="#module5">Module 5</a></li>
+            <li><a href="#module6">Module 6</a></li>
+            <li><a href="#module7">Module 7</a></li>
+            <li><a href="#module8">Module 8</a></li>
+            <li><a href="#module9">Module 9</a></li>
+            <li><a href="#module10">Module 10</a></li>
+
+        </ul>
+    </div>
+
+
+
+ <div class="content">
+
+
+
+    <h2 id="module1"> Module 1: Introduction to SQL & Databases</h2>
 
 <li>What is a Database?</li>
 <p>
@@ -155,7 +224,7 @@ You are now officially speaking the language of data 💾🚀
 </p>
 
 
-<h2>Module 2: Basic SQL Commands (SELECT, WHERE, ORDER BY, LIMIT)</h2>
+<h2 id="module2">Module 2: Basic SQL Commands (SELECT, WHERE, ORDER BY, LIMIT)</h2>
 
 <li>SELECT – Retrieving Data 🎯</li>
 <p>
@@ -324,7 +393,7 @@ ORDER BY Age ASC;
 You can now filter and analyze data like a beginner Data Analyst 💪📊
 </p>
 
-<h2>Module 3: Advanced Filtering (AND, OR, IN, BETWEEN, LIKE)</h2>
+<h2 id="module3">Module 3: Advanced Filtering (AND, OR, IN, BETWEEN, LIKE)</h2>
 
 <li>AND – Multiple Conditions 🔗</li>
 <p>
@@ -487,7 +556,7 @@ AND Age BETWEEN 18 AND 22;
 Now you can filter data like a real Data Analyst 🔥📊
 </p>
 
-<h2>Module 4: SQL JOINS (Connecting Multiple Tables)</h2>
+<h2 id="module4">Module 4: SQL JOINS (Connecting Multiple Tables)</h2>
 
 <li>Why Do We Need JOINS? 🤔</li>
 <p>
@@ -656,7 +725,7 @@ ON Employees.DepartmentID = Departments.DepartmentID;
 Now you can connect data like a real Data Scientist 🔥💾
 </p>
 
-<h2>Module 5: Aggregate Functions (COUNT, SUM, AVG, GROUP BY, HAVING)</h2>
+<h2 id="module5">Module 5: Aggregate Functions (COUNT, SUM, AVG, GROUP BY, HAVING)</h2>
 
 <li>What Are Aggregate Functions? 📊</li>
 <p>
@@ -831,7 +900,7 @@ HAVING COUNT(*) > 2;
 Now you can generate business reports like a Data Analyst 🔥📊
 </p>
 
-<h2>Module 6: Subqueries (Nested Queries)</h2>
+<h2 id="module6">Module 6: Subqueries (Nested Queries)</h2>
 
 <li>What is a Subquery? 🤔</li>
 <p>
@@ -1018,7 +1087,7 @@ You are now thinking like a SQL problem solver 🔥🧠
 </p>
 
 
-<h2>Module 7: Database Design & Normalization</h2>
+<h2 id="module7">Module 7: Database Design & Normalization</h2>
 
 <li>Why Database Design Matters? 🧠</li>
 <p>
@@ -1237,7 +1306,7 @@ You now understand how real databases are built 🔥💾
 </p>
 
 
-<h2>Module 8: Indexing & Query Optimization</h2>
+<h2 id="module8">Module 8: Indexing & Query Optimization</h2>
 
 <li>Why Performance Matters? ⚡</li>
 <p>
@@ -1407,7 +1476,7 @@ Now you understand how to make SQL systems efficient ⚡🔥
 </p>
 
 
-<h2>Module 9: SQL for Data Science Projects</h2>
+<h2 id="module9">Module 9: SQL for Data Science Projects</h2>
 
 <li>Why SQL is Important for Data Science? 📊</li>
 <p>
@@ -1613,7 +1682,7 @@ WHERE o.OrderID IS NULL;
 Now you can use SQL like a real Data Scientist 📊🔥
 </p>
 
-<h2>Module 10: SQL Interview Questions & Practice Problems</h2>
+<h2 id="module10">Module 10: SQL Interview Questions & Practice Problems</h2>
 
 <li>Why Interview Preparation Matters? 💼</li>
 <p>

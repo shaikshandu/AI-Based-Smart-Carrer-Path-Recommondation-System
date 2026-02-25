@@ -12,6 +12,50 @@
   font-size: 14px;
 }
 
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0f172a;
+    color: white;
+}
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #111827;
+    padding: 20px;
+    position: fixed;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #22c55e;
+    font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+    color: white;
+}
+
+.content {
+    margin-left: 270px;
+    padding: 40px;
+    width: 100%;
+}
+
+
 code {
   font-family: "Courier New", monospace;
 }
@@ -19,11 +63,33 @@ code {
 </head>
 <body>
 
+  <div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Modules</h2>
+        <ul>
+            <li><a href="#module1">Module 1</a></li>
+            <li><a href="#module2">Module 2</a></li>
+            <li><a href="#module3">Module 3</a></li>
+            <li><a href="#module4">Module 4</a></li>
+            <li><a href="#module5">Module 5</a></li>
+            <li><a href="#module6">Module 6</a></li>
+            <li><a href="#module7">Module 7</a></li>
+
+
+        </ul>
+    </div>
+
+
+
+ <div class="content">
+
 <h1>MLOps & Deployment</h1>
 
 
 
-<h2>Module 1: Introduction to MLOps</h2>
+<h2 id="module1">Module 1: Introduction to MLOps</h2>
 
 <li>What is MLOps?</li>
 <p>
@@ -54,7 +120,7 @@ Challenges:
 
 
 
-<h2>Module 2: Docker Basics</h2>
+<h2 id="module2">Module 2: Docker Basics</h2>
 
 <li>What is Docker?</li>
 <p>
@@ -93,7 +159,7 @@ docker run -p 8000:8000 model-api
 
 
 
-<h2>Module 3: Kubernetes Basics</h2>
+<h2 id="module3">Module 3: Kubernetes Basics</h2>
 
 <li>What is Kubernetes?</li>
 <p>
@@ -123,7 +189,7 @@ Used when traffic increases.
 
 
 
-<h2>Module 4: FastAPI for Model Serving</h2>
+<h2 id="module4">Module 4: FastAPI for Model Serving</h2>
 
 <li>Why FastAPI?</li>
 <p>
@@ -153,7 +219,7 @@ User Request → API Endpoint → Model Prediction → JSON Response
 
 
 
-<h2>Module 5: MLflow for Experiment Tracking</h2>
+<h2 id="module5">Module 5: MLflow for Experiment Tracking</h2>
 
 <li>What is MLflow?</li>
 <p>
@@ -181,7 +247,7 @@ Reproducibility ensures:
 
 
 
-<h2>Module 6: CI/CD for Machine Learning</h2>
+<h2 id="module6">Module 6: CI/CD for Machine Learning</h2>
 
 <li>What is CI/CD?</li>
 <p>
@@ -207,7 +273,7 @@ and ensure safe deployments.
 
 
 
-<h2>Module 7: Cloud Deployment</h2>
+<h2 id="module7">Module 7: Cloud Deployment</h2>
 
 <li>AWS SageMaker</li>
 <p>
