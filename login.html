@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Portal | Auth</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-box" id="formBox">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+
+            <div class="social-icons">
+                <a href="facebook.html"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F%3Fhl%3Den_GB&ec=GAlAwAE&hl=en_GB&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S-1509305884%3A1772016107883177"><i class="fa-brands fa-google"></i></a>
+                <a href="twitter.html"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+
+            <form id="login" class="input-group" onsubmit="handleAuth(event, 'Login')">
+                <input type="text" class="input-field" placeholder="User ID / Email" required>
+                <div class="password-container">
+                    <input type="password" class="input-field" id="loginPass" placeholder="Enter Password" required>
+                    <i class="fa-solid fa-eye" onclick="togglePassword('loginPass', this)"></i>
+                </div>
+                <div class="checkbox-row">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="forgot.html">Forgot Password?</a>
+                </div>
+                <button type="submit" class="submit-btn">Enter Dashboard</button>
+            </form>
+
+            <form id="signup" class="input-group" onsubmit="handleAuth(event, 'Signup')">
+                <input type="text" class="input-field" placeholder="Full Name" required>
+                <input type="email" class="input-field" placeholder="Email Address" required>
+                <div class="password-container">
+                    <input type="password" class="input-field" id="regPass" placeholder="Create Password" required>
+                    <i class="fa-solid fa-eye" onclick="togglePassword('regPass', this)"></i>
+                </div>
+                <label class="terms"><input type="checkbox" required> I agree to terms & conditions</label>
+                <button type="submit" class="submit-btn">Create Account</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
